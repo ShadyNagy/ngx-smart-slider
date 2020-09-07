@@ -1,9 +1,14 @@
-<button *ngIf="_showPrevious" type="button" (click)="onPrevious()" [disabled]="itemIndex===0">Previous</button>
-<button *ngIf="_showNext" type="button" (click)="onNext()" [disabled]="itemIndex == _items.length - 1">Next</button>
-<div [@animSlider]="itemIndex">
-	<ng-container *ngFor="let item of _items; let i=index">
-		<span *ngIf="i===itemIndex">
-			{{item}}
-		</span>
-	</ng-container>
+<div class="container" style="height:{{_height}}">
+  <div *ngIf="_showPrevious" class="arrow arrow-prev" (click)="onPrevious()" [attr.disabled]="isPreviousDisabled()"></div>
+  <div style="display: inline-block;">
+    <ng-container *ngFor="let item of _items; let i=index">
+      <div *ngIf="show(item, i)" class="img-with-text">
+        <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" style="cursor: pointer;margin:{{_itemMargin}};height: {{_height}};" (click)="onItemClick(item)" />
+        <span *ngIf="item.text" style="cursor: pointer;margin:{{_itemMargin}};" (click)="onItemClick(item)">
+          {{item.text}}
+        </span>
+      </div>      
+    </ng-container>
+  </div>
+  <div *ngIf="_showNext" class="arrow arrow-next" (click)="onNext()" [attr.disabled]="isNextDisabled()"></div>
 </div>

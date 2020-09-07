@@ -38,16 +38,11 @@ If you like or are using this project please give it a star [here](https://githu
 
 ## Screenshot 
 
-![ngx-smart-slider](https://user-images.githubusercontent.com/6225593/91753134-bff8e300-ebc7-11ea-8da3-8c4b58ca3597.gif)
+![ngx-smart-slider]()
 
 ## ✨ Features
 
-- Insert numbers only.
-- Numbers with mask so it is can use as password.
-- Period can use.
-- Hide display if you want.
-- Maximum length for input string.
-- Maximum number can set.
+- Slider
 
 ## ☀️ License
 
@@ -83,22 +78,28 @@ export class AppModule {
 
 In your template write this code.
 ```html
-<smart-slider [showPeriod]="true" [isPassword]="false" [(data)]="result"></smart-slider>
+<smart-slider [cellLimit]="3" [transitionDuration]="1" [height]="200" [items]="items" [showPrevious]="isShowPrevious" [showNext]="isShowNext"></smart-slider>
 ```
 
 ## Properties
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| [showDisplay] | Show Display or not | boolean | true |
-| [showPeriod] | Show period button or not | boolean | true |
-| [isPassword] | Write asterisk in the field | boolean | false |
-| [maxLength] | Not allow more length than this max, null is unlimited | number | null |
-| [maxNumber] | Not allow more number than this max, null is unlimited | number | null |
-| [background] | Component background | string | '#ccc' |
-| [width] | Component width can be for ex 400px | string | '100%' |
-| [padding] | Component padding can be for ex 20px | string | '10px' |
-| [(data)] | Data input and output | string | '' |
+| [class] | Set class | string | '' |
+| [transitionDuration] | Transition duration | number | 0.3 |
+| [autoplayInterval] | Auto play interval (MS) | number | 2000 |
+| [height] | Height | number | null |
+| [cellLimit] | Cell limit to show | number | 1 |
+| [itemPadding] | Item padding | number | 10 |
+| [itemMargin] | Item margin | number | 10 |
+| [pauseOnHover] | Pause when hover | boolean | false |
+| [loop] | Is looping | boolean | false |
+| [autoplay] | Auto play | boolean | false |
+| [showDots] | Show dots | boolean | false |
+| [showNext] | Show next button | boolean | false |
+| [showPrevious] | Show previous button | boolean | false |
+| [items] | Items | Array<Item> | [] |
+| `(select)` | Event fire when select item and return item | Item | null |
 
 ## 🔗 Links
 
@@ -126,4 +127,4 @@ We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.c
 
 - [ShadyNagy](http://www.shadynagy.com/)
 
-> We list some users here, if your company or product uses ngx-smart-slider, let us know [here](https://github.com/shadynagy/ngx-smart-slider/issues/8)!
+> We list some users here, if your company or product uses ngx-smart-slider, let us know [here](https://github.com/shadynagy/ngx-smart-slider/issues/1)!

@@ -1,7 +1,7 @@
 {
   "name": "ngx-smart-slider",
   "author": "Shady Nagy <info@shadynagy.com>",
-  "version": "1.1.7",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "An enterprise-class UI components based on slider and Angular",
   "keywords": [
@@ -13,7 +13,10 @@
     "angular",
     "ui",
     "framework",
-    "frontend"
+    "frontend",
+    "angular",
+    "Carousel",
+    "Responsive"
   ],
   "homepage": "http://shadynagy.com",
   "repository": {
