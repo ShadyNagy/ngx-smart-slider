@@ -1,0 +1,9 @@
+<button *ngIf="_showPrevious" type="button" (click)="onPrevious()" [disabled]="itemIndex===0">Previous</button>
+<button *ngIf="_showNext" type="button" (click)="onNext()" [disabled]="itemIndex == _items.length - 1">Next</button>
+<div [@animSlider]="itemIndex">
+	<ng-container *ngFor="let item of _items; let i=index">
+		<span *ngIf="i===itemIndex">
+			{{item}}
+		</span>
+	</ng-container>
+</div>

@@ -1,14 +1,4 @@
 <p align="center">
-  <a href="https://www.npmjs.com/package/ngx-smart-slider">
-    <img width="230" src="icon.png">
-  </a>
-</p>
-
-<h1 align="center">
-NGX-SMART-SLIDER
-</h1>
-
-<p align="center">
     <a href="https://www.npmjs.com/package/ngx-smart-slider" alt="npm" target="_blank">
         <img src="https://img.shields.io/npm/v/ngx-smart-slider" />
     </a>
@@ -17,9 +7,6 @@ NGX-SMART-SLIDER
     </a>
     <a href="https://github.com/ShadyNagy/ngx-smart-slider/actions?query=workflow%3Anpm-publish" alt="Workflows">
         <img src="https://github.com/shadynagy/ngx-smart-slider/workflows/npm-publish/badge.svg" />
-    </a>
-    <a href="https://github.com/ShadyNagy/ngx-smart-slider/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/github/contributors/ShadyNagy/ngx-smart-slider" />
     </a>
     <a href="https://github.com/ShadyNagy/ngx-smart-slider/blob/master/LICENSE" alt="license">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" />

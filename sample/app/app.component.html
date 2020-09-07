@@ -1,0 +1,20 @@
+<h1>Options</h1>
+<input type="checkbox" id="toggleShowPrevious" name="toggleShowPrevious" [checked]="isShowPrevious" (change)="toggleShowPrevious()" />
+<label for="toggleShowPrevious"> Show Previous </label>
+<br>
+
+<input type="checkbox" id="toggleShowNext" name="toggleShowNext" [checked]="isShowNext" (change)="toggleShowNext()" />
+<label for="toggleShowNext"> Show Next </label>
+<br>
+
+<br>
+<span>Result: {{result}}</span>
+
+<hr>
+<h1>Component</h1>
+<div style="width: 400px;height: 200px;">
+  <smart-slider [items]="items" [showPrevious]="isShowPrevious" [showNext]="isShowNext"></smart-slider>
+</div>
+<hr>
+
+

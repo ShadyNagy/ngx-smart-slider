@@ -1,0 +1,29 @@
+name: npm-publish
+on:
+  push:
+    tags:
+      - v*.*.*
+    branches:
+      - master # Change this to your default branch
+    paths:
+      - 'projects/ngx-smart-slider/**'
+jobs:
+  npm-publish:
+    name: npm-publish
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@master
+    - name: Set up Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: 12.x
+    - name: Dependencies Install
+      run: npm install
+    - name: Build library
+      run: npm run build ngx-smart-slider -- --prod
+    - name: Publish if version has been updated
+      uses: JS-DevTools/npm-publish@v1
+      with: # All of theses inputs are optional
+        token: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+        package: "./dist/ngx-smart-slider/package.json"        
