@@ -99,7 +99,7 @@ In your template write this code.
 | [showNext] | Show next button | boolean | false |
 | [showPrevious] | Show previous button | boolean | false |
 | [textColor] | Text color | string | 'black' |
-| [textPosition] | Text position |  | 'centered-top' | 'centered-bottom' | 'centered' | 'bottom-right ' | 'top-right' | 'top-left' | 'bottom-left' |
+| [textPosition] | Text position | `'centered-top' | 'centered-bottom' | 'centered' | 'bottom-right ' | 'top-right' | 'top-left' | 'bottom-left'` | 'centered' |
 | [items] | Items | Array<Item> | [] |
 | `(select)` | Event fire when select item and return item | Item | null |
 
