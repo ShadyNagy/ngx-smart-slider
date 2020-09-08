@@ -2,11 +2,11 @@
   <div *ngIf="_showPrevious" class="arrow arrow-prev" (click)="onPrevious()" [attr.disabled]="isPreviousDisabled()"></div>
   <div style="display: inline-block;">
     <ng-container *ngFor="let item of _items; let i=index">
-      <div *ngIf="show(item, i)" class="img-with-text">
-        <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" style="cursor: pointer;margin:{{_itemMargin}};height: {{_height}};" (click)="onItemClick(item)" />
-        <span *ngIf="item.text" style="cursor: pointer;margin:{{_itemMargin}};" (click)="onItemClick(item)">
+      <div *ngIf="show(item, i)" class="img-with-text" style="margin:{{_itemMargin}};">
+        <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" style="height: {{_height}};" (click)="onItemClick(item)" />
+        <span *ngIf="item.text" (click)="onItemClick(item)">
           {{item.text}}
-        </span>
+        </span>   
       </div>      
     </ng-container>
 

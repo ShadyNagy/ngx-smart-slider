@@ -87,7 +87,7 @@ export class SmartSliderComponent implements OnInit {
     this._itemMargin = value+'px';
   }
 
-  _itemPadding: string='10px';
+  _itemPadding: string='0px';
   @Input('itemPadding')
   set itemPadding(value: number) {    
     this._itemPadding = value+'px';
@@ -177,11 +177,11 @@ export class SmartSliderComponent implements OnInit {
   }
 
   isNextDisabled() {
-    return this.itemIndex == this._items.length - 1;
+    return this.itemIndex === this._items.length - 1?'':null;
   }
 
   isPreviousDisabled() {
-    return this.itemIndex===0;
+    return this.itemIndex===0?'':null;
   }  
 
   show(item: Item, index: number) {
