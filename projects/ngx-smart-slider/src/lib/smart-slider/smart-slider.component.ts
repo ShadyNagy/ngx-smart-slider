@@ -93,6 +93,18 @@ export class SmartSliderComponent implements OnInit {
     this._itemPadding = value+'px';
   }
 
+  _textPosition: string='centered';
+  @Input('textPosition')
+  set textPosition(value: 'centered-top' | 'centered-bottom' | 'centered' | 'bottom-right ' | 'top-right' | 'top-left' | 'bottom-left') {    
+    this._textPosition = value;
+  }
+
+  _textColor: string='black';
+  @Input('textColor')
+  set textColor(value: string) {    
+    this._textColor = value;
+  }
+
   _cellLimit: number=1;
   @Input('cellLimit')
   set cellLimit(value: number) {    
@@ -104,7 +116,7 @@ export class SmartSliderComponent implements OnInit {
   @Input('height')
   set height(value: number) {    
     this._height = value+10+'px';
-    this.containerHeight = value+20+'px';
+    this.containerHeight = value+40+'px';
   }
 
   _autoplayInterval: number=2000;

@@ -1,12 +1,14 @@
-<div class="container" [ngStyle]="{'height': containerHeight}">
+<div class="container" [ngStyle]="{'height': containerHeight, 'width': width}">
   <div *ngIf="_showPrevious" class="arrow arrow-prev" (click)="onPrevious()" [class.arrow-disabled]="isPreviousDisabled()"></div>
   <div style="display: inline-block;">
     <ng-container *ngFor="let item of _items; let i=index">
       <div *ngIf="show(item, i)" class="img-with-text" [ngStyle]="{'margin': _itemMargin}">
-        <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" [ngStyle]="{'height': _height}" (click)="onItemClick(item)" draggable="false" />
-        <span *ngIf="item.text" (click)="onItemClick(item)">
-          {{item.text}}
-        </span>   
+        <div class="item">
+          <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" class="slider-image" [ngStyle]="{'height': _height}" (click)="onItemClick(item)" draggable="false" />
+          <span *ngIf="item.text" (click)="onItemClick(item)" class="{{_textPosition}}">
+            {{item.text}}
+          </span>   
+        </div>        
       </div>      
     </ng-container>
 

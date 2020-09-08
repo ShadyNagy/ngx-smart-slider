@@ -38,7 +38,7 @@ If you like or are using this project please give it a star [here](https://githu
 
 ## Screenshot 
 
-![ngx-smart-slider]()
+![ngx-smart-slider](https://user-images.githubusercontent.com/6225593/92482762-44f78400-f1e8-11ea-83a5-e3b3992879fa.gif)
 
 ## ✨ Features
 
@@ -98,6 +98,8 @@ In your template write this code.
 | [showDots] | Show dots | boolean | false |
 | [showNext] | Show next button | boolean | false |
 | [showPrevious] | Show previous button | boolean | false |
+| [textColor] | Text color | string | 'black' |
+| [textPosition] | Text position |  | 'centered-top' | 'centered-bottom' | 'centered' | 'bottom-right ' | 'top-right' | 'top-left' | 'bottom-left' |
 | [items] | Items | Array<Item> | [] |
 | `(select)` | Event fire when select item and return item | Item | null |
 
