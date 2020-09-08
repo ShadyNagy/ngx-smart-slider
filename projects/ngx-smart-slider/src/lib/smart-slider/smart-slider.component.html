@@ -1,9 +1,9 @@
-<div class="container" style="height:{{_height}}">
-  <div *ngIf="_showPrevious" class="arrow arrow-prev" (click)="onPrevious()" [attr.disabled]="isPreviousDisabled()"></div>
+<div class="container" [ngStyle]="{'height': containerHeight}">
+  <div *ngIf="_showPrevious" class="arrow arrow-prev" (click)="onPrevious()" [class.arrow-disabled]="isPreviousDisabled()"></div>
   <div style="display: inline-block;">
     <ng-container *ngFor="let item of _items; let i=index">
-      <div *ngIf="show(item, i)" class="img-with-text" style="margin:{{_itemMargin}};">
-        <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" style="height: {{_height}};" (click)="onItemClick(item)" />
+      <div *ngIf="show(item, i)" class="img-with-text" [ngStyle]="{'margin': _itemMargin}">
+        <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" [ngStyle]="{'height': _height}" (click)="onItemClick(item)" draggable="false" />
         <span *ngIf="item.text" (click)="onItemClick(item)">
           {{item.text}}
         </span>   
@@ -11,5 +11,5 @@
     </ng-container>
 
   </div>
-  <div *ngIf="_showNext" class="arrow arrow-next" (click)="onNext()" [attr.disabled]="isNextDisabled()"></div>
+  <div *ngIf="_showNext" class="arrow arrow-next" (click)="onNext()" [class.arrow-disabled]="isNextDisabled()"></div>
 </div>

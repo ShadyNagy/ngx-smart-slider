@@ -100,9 +100,11 @@ export class SmartSliderComponent implements OnInit {
   }      
 
   _height: string='100%';
+  containerHeight: string='100%';
   @Input('height')
   set height(value: number) {    
     this._height = value+10+'px';
+    this.containerHeight = value+20+'px';
   }
 
   _autoplayInterval: number=2000;
@@ -177,11 +179,11 @@ export class SmartSliderComponent implements OnInit {
   }
 
   isNextDisabled() {
-    return this.itemIndex === this._items.length - 1?'':null;
+    return this.itemIndex === this._items.length - 1;
   }
 
   isPreviousDisabled() {
-    return this.itemIndex===0?'':null;
+    return this.itemIndex===0;
   }  
 
   show(item: Item, index: number) {
