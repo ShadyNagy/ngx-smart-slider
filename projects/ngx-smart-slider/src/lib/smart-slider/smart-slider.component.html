@@ -1,6 +1,6 @@
 <div class="container" [ngStyle]="{'height': containerHeight, 'width': width}">
   <div *ngIf="_showPrevious" class="arrow arrow-prev" (click)="onPrevious()" [class.arrow-disabled]="isPreviousDisabled()"></div>
-  <div class="items" style="display: inline-block;">
+  <div class="items" [@slideInOut]="smartSliderService.itemIndex" style="display: inline-block;" (@slideInOut.done)="onTransitionEnd()">
     <ng-container *ngFor="let item of _items; let i=index">
       <div *ngIf="show(item)" class="img-with-text" [ngStyle]="{'margin': _itemMargin}">
         <div [className]="isLast(item) ? 'enter-item' : 'item'">

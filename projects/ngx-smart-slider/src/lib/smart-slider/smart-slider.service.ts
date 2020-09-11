@@ -1,21 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵclearResolutionOfComponentResourcesQueue } from '@angular/core';
 import { Item } from '../models/item';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SmartSliderService {
+export class SmartSliderService {  
 
-  itemsToShow = new Array<Item>();
-  private limit = 0;
+  itemsToShow = new Array<Item>();    
   itemIndex = 0;
   width = 0;
   height = 0;
   margin = 0;
   horizontalMargin = 0;
   verticalMargin = 0;
-  isLoop = false;
+  isLoop = false;  
 
+  private limit = 0;
+  private sliderMoving = false;
   private items = new Array<Item>();
 
   constructor() { }
@@ -67,15 +68,25 @@ export class SmartSliderService {
     this.updateItemsToShow();
   }  
 
-  moveNext() {
+  moveNext() {   
+    if(this.sliderMoving)  {
+      return;
+    }
     this.updateItemIndexNext();
     this.updateItemsToShow();       
   }
 
-  movePrevious() {
+  movePrevious() {  
+    if(this.sliderMoving)  {
+      return;
+    }
     this.updateItemIndexPrevious();
     this.updateItemsToShow();       
   }  
+
+  sliderDone() {
+    this.sliderMoving = false;
+  }
 
   private updateItemsToShow() {
     this.itemsToShow = new Array<Item>();
@@ -101,10 +112,12 @@ export class SmartSliderService {
         this.itemIndex = 0;
       }else {
         this.itemIndex++;
+        this.sliderMoving = true;
       }
     }else {
       if(this.itemIndex < this.maxIndex) {
         this.itemIndex++;
+        this.sliderMoving = true;
       }
     }
   }
@@ -115,10 +128,12 @@ export class SmartSliderService {
         this.itemIndex = 0;
       }else {
         this.itemIndex--;
+        this.sliderMoving = true;
       }
     }else {
       if(this.itemIndex > 0) {
         this.itemIndex--;
+        this.sliderMoving = true;
       }
     }
   }

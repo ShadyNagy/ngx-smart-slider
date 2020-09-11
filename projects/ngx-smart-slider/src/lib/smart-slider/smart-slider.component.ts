@@ -159,8 +159,9 @@ export class SmartSliderComponent implements OnInit {
 		].join(' ');
   }
 
-  @HostBinding('@slideInOut') get slideInOut() {
-    return {value: this.smartSliderService.itemIndex, params: {inWidth: this.width, inHeight: this._height, inTiming: this._transitionDuration}};
+  @HostListener('window:resize')
+  onResize() {
+    this.resize();
   }
 
   width = '100%';
@@ -168,12 +169,12 @@ export class SmartSliderComponent implements OnInit {
 
   constructor(private element: ElementRef, public smartSliderService: SmartSliderService) { 
 
-  }
-  
-  @HostListener('window:resize')
-  onResize() {
-    this.resize();
-  }
+  }  
+
+  get slideInOut() {
+    return {value: this.smartSliderService.itemIndex, params: {inWidth: this.width, inHeight: this._height, inTiming: this._transitionDuration}};
+  }  
+
 
   private resize() {
     this.width = (this.element.nativeElement.clientWidth)+'px';
@@ -215,5 +216,9 @@ export class SmartSliderComponent implements OnInit {
 
   isLast(item) {    
     return this.smartSliderService.itemsToShow[this.isNext?this.smartSliderService.itemsToShow.length-1:0] === item;
+  }
+
+  onTransitionEnd() {
+    this.smartSliderService.sliderDone();
   }
 }
