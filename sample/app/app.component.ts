@@ -37,6 +37,46 @@ export class AppComponent implements OnInit {
         text: '4',
         image: '/assets/images/1.jpg',
         alt: '4',
+      },
+      {
+        text: '1',
+        image: '/assets/images/1.jpg',
+        alt: '1',
+      },
+      {
+        text: '2',
+        image: '/assets/images/2.jpg',
+        alt: '2',
+      },
+      {
+        text: '3',
+        image: '/assets/images/3.jpg',
+        alt: '3',
+      },
+      {
+        text: '4',
+        image: '/assets/images/1.jpg',
+        alt: '4',
+      },
+      {
+        text: '1',
+        image: '/assets/images/1.jpg',
+        alt: '1',
+      },
+      {
+        text: '2',
+        image: '/assets/images/2.jpg',
+        alt: '2',
+      },
+      {
+        text: '3',
+        image: '/assets/images/3.jpg',
+        alt: '3',
+      },
+      {
+        text: '4',
+        image: '/assets/images/1.jpg',
+        alt: '4',
       }
     );
   }

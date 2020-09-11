@@ -1,12 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\.github",
+    "\\.github\\workflows",
     "\\projects",
     "\\projects\\ngx-smart-slider",
     "\\projects\\ngx-smart-slider\\src",
     "\\projects\\ngx-smart-slider\\src\\lib",
     "\\projects\\ngx-smart-slider\\src\\lib\\smart-slider"
   ],
-  "SelectedNode": "\\smart-slider.gif",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }

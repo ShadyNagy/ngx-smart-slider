@@ -1,6 +1,5 @@
 :host {
   display: block;
-  width: 100%;
 }
 
 .container {
@@ -8,8 +7,6 @@
   overflow: hidden;
   width: 100%;
   cursor: grab;
-  // vertical-align: middle;
-  // text-align: center;
 }
 
 .slider-image {
@@ -21,12 +18,6 @@
 }
 
 .item {
-  display: block;
-  position: relative;
-  text-align: center;
-  color: black;
-}
-.enter-item {
   display: block;
   position: relative;
   text-align: center;
@@ -76,11 +67,6 @@
   top: -5%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.items-left {
-  transition: transform 200ms;
-  
 }
 
 .img-with-text {

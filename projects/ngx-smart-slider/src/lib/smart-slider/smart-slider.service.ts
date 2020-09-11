@@ -1,67 +1,126 @@
 import { Injectable } from '@angular/core';
+import { Item } from '../models/item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SmartSliderService {
 
+  itemsToShow = new Array<Item>();
+  private limit = 0;
+  itemIndex = 0;
+  width = 0;
+  height = 0;
+  margin = 0;
+  horizontalMargin = 0;
+  verticalMargin = 0;
+  isLoop = false;
+
+  private items = new Array<Item>();
+
   constructor() { }
 
-  static createMasked(data: string, mask: string) {
-    let result = '';
-    if(data === undefined || data === null || data === '') {
-      return '';
-    }
-
-    for (let index = 0; index < data.length; index++) {
-      const element = data[index];
-      result += mask;
-    }
-
-    return result;
+  get maxIndex() {
+    return this.items.length > this.limit ? this.items.length-this.limit: 0;
   }
 
-  static clearData(value: string, showPeriod: boolean, maxLength: number, maxNumber: number) {
-    if(value === undefined || value === null) {
-      return;
-    }
-
-    let result = '';
-
-    for (let index = 0; index < value.length; index++) {
-      if(maxLength != null && index >= maxLength) {
-        continue;
-      }
-      const element = value[index];
-      result = this.insertChar(result, element, showPeriod, maxLength, maxNumber);
-    }
-
-    return result;
+  get itemWidth() {
+    return this.width/(this.horizontalMargin*2*this.limit);
   }
 
-  static insertChar(value: string, character: string, showPeriod: boolean, maxLength: number, maxNumber: number): string {
-    if(value === undefined || 
-      value === null || 
-      (maxLength != null && value.length >= maxLength)) {
-      return value;
-    }
+  get itemHeight() {
+    return this.height/(this.verticalMargin*2*this.limit);
+  }  
 
-    if((character === '.' && value.length <= 0) || (character === '.' && value.includes('.'))) {
-      return value;
-    }
+  setLimit(count: number) {
+    this.limit = count;    
+  }
 
-    if((showPeriod) && (character === ',' || character === '.')) {
-      return value + '.'; 
-    }
+  getLimit() {
+    return this.limit;
+  }
 
-    if(isNaN(parseInt(character))) {
-      return value;
+  setHorizontalMargin(margin : number) {
+    this.horizontalMargin  = margin;
+  }
+
+  setVerticalMargin(margin : number) {
+    this.verticalMargin  = margin;
+  }
+
+  setWidth(width: number) {
+    this.width = width;
+  }
+
+  setHeight(height: number) {
+    this.height = height;
+  }
+
+  setItems(items: Array<Item>, limit: number=null) {
+    if(limit == null) {
+      this.limit = items.length;
+    }else {
+      this.limit = limit;   
     }
     
-    if(maxNumber != null && parseInt(`${value}${character}`) > maxNumber) {
-      return `${maxNumber}`;
-    }
+    this.items = items;
+    this.updateItemsToShow();
+  }  
 
-    return `${value}${character}`;    
+  moveNext() {
+    this.updateItemIndexNext();
+    this.updateItemsToShow();       
   }
+
+  movePrevious() {
+    this.updateItemIndexPrevious();
+    this.updateItemsToShow();       
+  }  
+
+  private updateItemsToShow() {
+    this.itemsToShow = new Array<Item>();
+    let cnt = this.itemIndex;
+
+    for (let index = 0; index < this.limit; index++) {
+      const item = this.items[cnt];
+      if(index < this.items.length) {
+        this.itemsToShow.push(item);
+      }else {
+        if(this.isLoop) {
+          cnt = 0;
+          this.itemsToShow.push(item);
+        }
+      }
+      cnt++;      
+    } 
+  }
+
+  private updateItemIndexNext() {
+    if(this.isLoop) {
+      if(this.itemIndex >= this.maxIndex) {
+        this.itemIndex = 0;
+      }else {
+        this.itemIndex++;
+      }
+    }else {
+      if(this.itemIndex < this.maxIndex) {
+        this.itemIndex++;
+      }
+    }
+  }
+
+  private updateItemIndexPrevious() {
+    if(this.isLoop) {
+      if(this.itemIndex <= 0) {
+        this.itemIndex = 0;
+      }else {
+        this.itemIndex--;
+      }
+    }else {
+      if(this.itemIndex > 0) {
+        this.itemIndex--;
+      }
+    }
+  }
+
 }
