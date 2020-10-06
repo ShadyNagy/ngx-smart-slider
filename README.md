@@ -119,6 +119,7 @@ In your template write this code.
 $ git clone git@github.com:ShadyNagy/ngx-smart-slider.git
 $ cd ngx-smart-slider
 $ npm install
+$ npm run build ngx-smart-slider -- --prod
 $ npm run start
 ```
 
