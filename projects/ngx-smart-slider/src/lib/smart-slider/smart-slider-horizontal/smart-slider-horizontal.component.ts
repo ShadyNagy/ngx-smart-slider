@@ -128,7 +128,7 @@ export class SmartSliderHorizontalComponent implements OnInit {
   @Input('height')
   set height(value: string) {    
     this._height = value;
-    this.containerHeight = Number.parseInt(value)+40+'px';
+    this.containerHeight = Number.parseInt(value)+10+'px';
   }
 
   _autoplayInterval: number=2000;

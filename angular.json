@@ -69,7 +69,8 @@
               "sample/manifest.json"
             ],
             "styles": [
-              "sample/styles.scss"
+              "sample/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
             ]
