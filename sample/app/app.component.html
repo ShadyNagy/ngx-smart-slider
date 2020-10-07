@@ -28,14 +28,13 @@
 <br>
 <span>Result: {{result}}</span>
 
-<hr>
 <h1>Component</h1>
 <div class="row">
   <div class="col-8" style="height: 200px;">
     <smart-slider [textColor]="'black'" [textPosition]="selectedTextPosition" [itemMargin]="5" [cellLimit]="cellLimit" [transitionDuration]="1" [height]="100" [items]="items" [showPrevious]="isShowPrevious" [showNext]="isShowNext" (select)="onSelect($event)"></smart-slider>
   </div>
 
-  <div class="col-4" style="height: 600px;">
+  <div class="col-4" style="height: 400px;">
     <smart-slider [vertical]="true" [textColor]="'black'" [textPosition]="selectedTextPosition" [itemMargin]="5" [cellLimit]="cellLimit" [width]="100" [transitionDuration]="1" [items]="items" [showPrevious]="isShowPrevious" [showNext]="isShowNext" (select)="onSelect($event)"></smart-slider>
   </div>
 </div>
