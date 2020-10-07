@@ -1,0 +1,17 @@
+<div class="container" [ngStyle]="{'height': height, 'width': containerWidth}">
+  <div *ngIf="_showPrevious" class="arrow arrow-prev" (click)="onPrevious()" [class.arrow-disabled]="isPreviousDisabled()"></div>
+  <div class="items" [@slideInOut]="smartSliderService.itemIndex" (@slideInOut.done)="onTransitionEnd()">
+    <ng-container *ngFor="let item of _items; let i=index">
+      <div *ngIf="show(item)" class="img-with-text" [ngStyle]="{'margin': _itemMargin}">
+        <div [className]="isLast(item) ? 'enter-item' : 'item'">
+          <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" class="slider-image" [ngStyle]="{'height': smartSliderService.itemHeight, 'width': _width}" (click)="onItemClick(item)" draggable="false" />
+          <span *ngIf="item.text" (click)="onItemClick(item)" class="{{_textPosition}}">
+            {{item.text}}
+          </span>   
+        </div>        
+      </div>      
+    </ng-container>
+
+  </div>
+  <div *ngIf="_showNext" class="arrow arrow-next" (click)="onNext()" [class.arrow-disabled]="isNextDisabled()"></div>
+</div>

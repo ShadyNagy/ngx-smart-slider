@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SmartSliderComponent } from './smart-slider.component';
+import { SmartSliderHorizontalComponent } from './smart-slider-horizontal/smart-slider-horizontal.component';
+import { SmartSliderVerticalComponent } from './smart-slider-vertical/smart-slider-vertical.component';
 
 const declarations = [
   SmartSliderComponent,
@@ -13,6 +15,8 @@ const declarations = [
 @NgModule({
   declarations: [
     ...declarations,
+    SmartSliderHorizontalComponent,
+    SmartSliderVerticalComponent,
   ],
   imports: [
     CommonModule,

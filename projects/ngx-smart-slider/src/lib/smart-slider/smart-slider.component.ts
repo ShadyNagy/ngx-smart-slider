@@ -1,65 +1,30 @@
-import { Component, OnInit, HostBinding, Input, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
-import { trigger, transition, query, style, animate, group } from '@angular/animations';
+import { Component, HostBinding, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../models/item';
-import { SmartSliderService } from './smart-slider.service';
-
-let left = [
-  query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
-  group([
-
-    query(':leave', [style({ display: 'none' })], {
-      optional: true,
-    }),
-    query('.item', [style({ transform: 'translateX(0)' }), animate('{{inTiming}}s ease-out', style({ transform: 'translateX(100%)' }))], {
-      optional: true,
-    }),
-    query(':enter', [style({ transform: 'translateX(-100%)' }), animate('{{inTiming}}s ease-out', style({ transform: 'translateX(0)' }))], {
-      optional: true,
-    }),
-  ]),
-
-];
-
-let right = [
-  query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
-  group([
-    query(':leave', [style({ display: 'none' })], {
-      optional: true,
-    }),
-    query('.item', [style({ transform: 'translateX(100%)' }), animate('{{inTiming}}s ease-out', style({ transform: 'translateX(0)' }))], {
-      optional: true,
-    }),
-    query(':enter', [style({ transform: 'translateX(100%)' }), animate('{{inTiming}}s ease-out', style({ transform: 'translateX(0)' }))], {
-      optional: true,
-    }),
-  ]),
-];
 
 @Component({
   selector: 'smart-slider',
   templateUrl: './smart-slider.component.html',
   styleUrls: ['./smart-slider.component.scss'],
-  animations: [
-    trigger('slideInOut', [
-      transition(':increment', right, {params: {inWidth: '100%', inHeight: '100%', inTiming: '1'}}),
-      transition(':decrement', left, {params: {inWidth: '100%', inHeight: '100%', inTiming: '1'}}),
-    ]),
-  ],
 })
-export class SmartSliderComponent implements OnInit {
+export class SmartSliderComponent {
 
+  _vertical: boolean=false;
+  @Input('vertical')
+  set vertical(value: boolean) {    
+    this._vertical = value;
+  }
+  
   _items=new Array<Item>();
   @Input('items')
   set items(value: Array<Item>) {    
     this._items = value;
-    this.smartSliderService.setItems(this._items, this._cellLimit);
   }
 
   _showPrevious: boolean=true;
   @Input('showPrevious')
   set showPrevious(value: boolean) {    
     this._showPrevious = value;
-  }
+  }  
 
   _showNext: boolean=true;
   @Input('showNext')
@@ -81,8 +46,7 @@ export class SmartSliderComponent implements OnInit {
 
   _loop: boolean=false;
   @Input('loop')
-  set loop(value: boolean) {    
-    this.smartSliderService.isLoop = value; 
+  set loop(value: boolean) {
     this._loop = value;
   }
 
@@ -120,15 +84,18 @@ export class SmartSliderComponent implements OnInit {
   @Input('cellLimit')
   set cellLimit(value: number) {    
     this._cellLimit = value;
-    this.smartSliderService.setItems(this._items, this._cellLimit);
   }      
 
   _height: string='100%';
-  containerHeight: string='100%';
   @Input('height')
   set height(value: number) {    
     this._height = value+10+'px';
-    this.containerHeight = value+40+'px';
+  }
+
+  _width: string='100%';
+  @Input('width')
+  set width(value: number) {    
+    this._width = value+10+'px';
   }
 
   _autoplayInterval: number=2000;
@@ -159,66 +126,12 @@ export class SmartSliderComponent implements OnInit {
 		].join(' ');
   }
 
-  @HostListener('window:resize')
-  onResize() {
-    this.resize();
-  }
 
-  width = '100%';
-  isNext = false;
-
-  constructor(private element: ElementRef, public smartSliderService: SmartSliderService) { 
+  constructor() { 
 
   }  
 
-  get slideInOut() {
-    return {value: this.smartSliderService.itemIndex, params: {inWidth: this.width, inHeight: this._height, inTiming: this._transitionDuration}};
-  }  
-
-
-  private resize() {
-    this.width = (this.element.nativeElement.clientWidth)+'px';
-    this.smartSliderService.setWidth(this.element.nativeElement.clientWidth);
-    
-  }
-
-  ngOnInit(): void {
-    this.smartSliderService.setItems(this._items, this._cellLimit);    
-    this.resize();
-  }
-
-  onItemClick(selected: any) {
-    this.select.emit(selected);
-  }
-
-  isNextDisabled() {
-    return this.smartSliderService.itemIndex === this._items.length - 1;
-  }
-
-  isPreviousDisabled() {
-    return this.smartSliderService.itemIndex===0;
-  }
-
-  show(item: Item) {
-    return this.smartSliderService.itemsToShow.includes(item);
-  }
-
-  onNext() {
-    console.log('itemIndex', this.smartSliderService.itemIndex);
-    this.smartSliderService.moveNext();
-    this.isNext = true;
-  }
-
-  onPrevious() {
-    this.smartSliderService.movePrevious();
-    this.isNext = false;
-  }
-
-  isLast(item) {    
-    return this.smartSliderService.itemsToShow[this.isNext?this.smartSliderService.itemsToShow.length-1:0] === item;
-  }
-
-  onTransitionEnd() {
-    this.smartSliderService.sliderDone();
+  onSelect(event: Item) {
+    this.select.emit(event);
   }
 }

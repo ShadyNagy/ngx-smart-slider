@@ -1,17 +1,2 @@
-<div class="container" [ngStyle]="{'height': containerHeight, 'width': width}">
-  <div *ngIf="_showPrevious" class="arrow arrow-prev" (click)="onPrevious()" [class.arrow-disabled]="isPreviousDisabled()"></div>
-  <div class="items" [@slideInOut]="smartSliderService.itemIndex" style="display: inline-block;" (@slideInOut.done)="onTransitionEnd()">
-    <ng-container *ngFor="let item of _items; let i=index">
-      <div *ngIf="show(item)" class="img-with-text" [ngStyle]="{'margin': _itemMargin}">
-        <div [className]="isLast(item) ? 'enter-item' : 'item'">
-          <img *ngIf="item.image" src="{{item.image}}" alt="{{item.image}}" class="slider-image" [ngStyle]="{'height': _height, 'width': smartSliderService.itemWidth}" (click)="onItemClick(item)" draggable="false" />
-          <span *ngIf="item.text" (click)="onItemClick(item)" class="{{_textPosition}}">
-            {{item.text}}
-          </span>   
-        </div>        
-      </div>      
-    </ng-container>
-
-  </div>
-  <div *ngIf="_showNext" class="arrow arrow-next" (click)="onNext()" [class.arrow-disabled]="isNextDisabled()"></div>
-</div>
+<smart-slider-horizontal *ngIf="!_vertical" [textColor]="_textColor" [textPosition]="_textPosition" [itemMargin]="_itemMargin" [cellLimit]="_cellLimit" [transitionDuration]="_transitionDuration" [height]="_height" [items]="_items" [showPrevious]="_showPrevious" [showNext]="_showNext" (select)="onSelect($event)"></smart-slider-horizontal>
+<smart-slider-vertical *ngIf="_vertical" [textColor]="_textColor" [textPosition]="_textPosition" [itemMargin]="_itemMargin" [cellLimit]="_cellLimit" [transitionDuration]="_transitionDuration" [width]="_width" [items]="_items" [showPrevious]="_showPrevious" [showNext]="_showNext" (select)="onSelect($event)"></smart-slider-vertical>

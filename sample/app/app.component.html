@@ -30,8 +30,15 @@
 
 <hr>
 <h1>Component</h1>
-<div style="width: 100%">
+<!-- <div style="width: 100%">
   <smart-slider [textColor]="'black'" [textPosition]="selectedTextPosition" [itemMargin]="5" [cellLimit]="cellLimit" [transitionDuration]="1" [height]="200" [items]="items" [showPrevious]="isShowPrevious" [showNext]="isShowNext" (select)="onSelect($event)"></smart-slider>
+</div>   -->
+
+<div style="height: 500px; width: 500px;">
+  <smart-slider [vertical]="true" [textColor]="'black'" [textPosition]="selectedTextPosition" [itemMargin]="5" [cellLimit]="cellLimit" [width]="300" [transitionDuration]="1" [items]="items" [showPrevious]="isShowPrevious" [showNext]="isShowNext" (select)="onSelect($event)"></smart-slider>
 </div>
 
-
+<!-- 
+<div style="height: 500px; width: 326px;overflow: hidden;">
+  <img *ngFor="let item of items" src="{{item.image}}" />
+</div> -->
