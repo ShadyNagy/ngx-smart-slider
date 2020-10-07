@@ -128,7 +128,7 @@ export class SmartSliderHorizontalComponent implements OnInit {
   @Input('height')
   set height(value: string) {    
     this._height = value;
-    this.containerHeight = value+40+'px';
+    this.containerHeight = Number.parseInt(value)+40+'px';
   }
 
   _autoplayInterval: number=2000;
@@ -167,7 +167,9 @@ export class SmartSliderHorizontalComponent implements OnInit {
   width = '100%';
   isNext = false;
 
-  constructor(private element: ElementRef, public smartSliderService: SmartSliderService) { 
+  smartSliderService = new SmartSliderService();
+
+  constructor(private element: ElementRef) { 
 
   }  
 
@@ -177,8 +179,10 @@ export class SmartSliderHorizontalComponent implements OnInit {
 
 
   private resize() {
-    this.width = (this.element.nativeElement.clientWidth)+'px';
-    this.smartSliderService.setWidth(this.element.nativeElement.clientWidth);
+    let parentElement = this.element.nativeElement.parentNode.parentNode as HTMLElement;
+
+    this.width = (parentElement.clientWidth)+'px';
+    this.smartSliderService.setWidth(parentElement.clientWidth);
     
   }
 

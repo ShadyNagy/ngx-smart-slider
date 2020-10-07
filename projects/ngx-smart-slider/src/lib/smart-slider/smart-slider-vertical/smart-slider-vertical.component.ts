@@ -166,9 +166,10 @@ export class SmartSliderVerticalComponent implements OnInit {
 
   height = '100%';
   isNext = false;
+  smartSliderService = new SmartSliderService();
 
-  constructor(private element: ElementRef, public smartSliderService: SmartSliderService) { 
-
+  constructor(private element: ElementRef) { 
+    
   }  
 
   get slideInOut() {

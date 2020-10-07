@@ -78,10 +78,15 @@
   transform: translate(-50%, -50%);
 }
 
+.items {
+  display: inline-block;
+}
+
 .items-left {
   transition: transform 200ms;
   
 }
+
 
 .img-with-text {
   display: inline-flex;
