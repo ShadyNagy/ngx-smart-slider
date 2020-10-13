@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input, Output, EventEmitter } from '@angular/core';
-import { Item } from '../models/item';
+import { SmartSliderItem } from '../models/smart-slider-item';
 
 @Component({
   selector: 'smart-slider',
@@ -14,9 +14,9 @@ export class SmartSliderComponent {
     this._vertical = value;
   }
   
-  _items=new Array<Item>();
+  _items=new Array<SmartSliderItem>();
   @Input('items')
-  set items(value: Array<Item>) {    
+  set items(value: Array<SmartSliderItem>) {    
     this._items = value;
   }
 
@@ -131,7 +131,7 @@ export class SmartSliderComponent {
 
   }  
 
-  onSelect(event: Item) {
+  onSelect(event: SmartSliderItem) {
     this.select.emit(event);
   }
 }

@@ -1,8 +1,9 @@
-import { Item } from '../models/item';
+import { SmartSliderItem } from '../models/smart-slider-item';
+
 
 export class SmartSliderService {  
 
-  itemsToShow = new Array<Item>();    
+  itemsToShow = new Array<SmartSliderItem>();    
   itemIndex = 0;
   width = 0;
   height = 0;
@@ -13,7 +14,7 @@ export class SmartSliderService {
 
   private limit = 0;
   private sliderMoving = false;
-  private items = new Array<Item>();
+  private items = new Array<SmartSliderItem>();
 
   constructor() { }
 
@@ -53,7 +54,7 @@ export class SmartSliderService {
     this.height = height;
   }
 
-  setItems(items: Array<Item>, limit: number=null) {
+  setItems(items: Array<SmartSliderItem>, limit: number=null) {
     if(limit == null) {
       this.limit = items.length;
     }else {
@@ -85,7 +86,7 @@ export class SmartSliderService {
   }
 
   private updateItemsToShow() {
-    this.itemsToShow = new Array<Item>();
+    this.itemsToShow = new Array<SmartSliderItem>();
     let cnt = this.itemIndex;
 
     for (let index = 0; index < this.limit; index++) {

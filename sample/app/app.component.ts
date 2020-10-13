@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from 'projects/ngx-smart-slider/src/lib/models/item';
+import { SmartSliderItem } from 'projects/ngx-smart-slider/src/lib/models/smart-slider-item';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   selectedTextPosition = 'centered';
   cellLimit = 3;
 
-  items = new Array<Item>();
+  items = new Array<SmartSliderItem>();
 
   ngOnInit(): void {
     this.items.push(
@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
     this.selectedTextPosition = event;
   }
 
-  onSelect(event: Item) {
+  onSelect(event: SmartSliderItem) {
     this.result = event.text;
   }
 

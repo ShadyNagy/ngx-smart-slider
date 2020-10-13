@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding, Input, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
 import { trigger, transition, query, style, animate, group } from '@angular/animations';
-import { Item } from '../../models/item';
 import { SmartSliderService } from '../smart-slider.service';
+import { SmartSliderItem } from '../../models/smart-slider-item';
 
 let bottom = [
   query(':enter, :leave', style({ position: 'fixed', height: '100%' }), { optional: true }),
@@ -48,9 +48,9 @@ let top = [
 })
 export class SmartSliderVerticalComponent implements OnInit {
 
-  _items=new Array<Item>();
+  _items=new Array<SmartSliderItem>();
   @Input('items')
-  set items(value: Array<Item>) {    
+  set items(value: Array<SmartSliderItem>) {    
     this._items = value;
     this.smartSliderService.setItems(this._items, this._cellLimit);
   }
@@ -201,7 +201,7 @@ export class SmartSliderVerticalComponent implements OnInit {
     return this.smartSliderService.itemIndex===0;
   }
 
-  show(item: Item) {
+  show(item: SmartSliderItem) {
     return this.smartSliderService.itemsToShow.includes(item);
   }
 

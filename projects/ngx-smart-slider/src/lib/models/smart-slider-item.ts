@@ -1,4 +1,4 @@
-export class Item {
+export class SmartSliderItem {
     text?: string;
     image?: string;
     alt?: string;
