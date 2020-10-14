@@ -2,7 +2,7 @@ import { Component, OnInit, HostBinding, Input, Output, EventEmitter, ElementRef
 import { trigger, transition, query, style, animate, group } from '@angular/animations';
 import { SmartSliderService } from '../smart-slider.service';
 import { SmartSliderItem } from '../../models/smart-slider-item';
-import { SafeStyle } from '@angular/platform-browser';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 let left = [
   query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
@@ -155,9 +155,9 @@ export class SmartSliderHorizontalComponent implements OnInit {
 
   @HostBinding('style')
 	get hostStyles(): SafeStyle {
-		return [
+		return this.sanitizer.bypassSecurityTrustStyle(  [
       `height: ${this.containerHeight}`
-		].join(';');
+		].join(';'));
   }
 
   @HostBinding('class')
@@ -177,7 +177,7 @@ export class SmartSliderHorizontalComponent implements OnInit {
 
   smartSliderService = new SmartSliderService();
 
-  constructor(private element: ElementRef) { 
+  constructor(private element: ElementRef, private sanitizer:DomSanitizer) { 
 
   }  
 
