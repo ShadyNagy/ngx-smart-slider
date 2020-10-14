@@ -152,6 +152,13 @@ export class SmartSliderHorizontalComponent implements OnInit {
   @Output()
   select: EventEmitter<any> = new EventEmitter<any>();
 
+  @HostBinding('style')
+	get hostStyles(): string {
+		return [
+      `height: ${this.containerHeight}`
+		].join(';');
+  }
+
   @HostBinding('class')
 	get hostClasses(): string {
 		return [
