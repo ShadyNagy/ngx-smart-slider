@@ -1,4 +1,5 @@
 import { Component, HostBinding, Input, Output, EventEmitter } from '@angular/core';
+import { SafeStyle } from '@angular/platform-browser';
 import { SmartSliderItem } from '../models/smart-slider-item';
 
 @Component({
@@ -120,7 +121,7 @@ export class SmartSliderComponent {
   select: EventEmitter<any> = new EventEmitter<any>();
 
   @HostBinding('style')
-	get hostStyles(): string {
+	get hostStyles(): SafeStyle {
 		return [
       `height: ${this._height}`
 		].join(';');
