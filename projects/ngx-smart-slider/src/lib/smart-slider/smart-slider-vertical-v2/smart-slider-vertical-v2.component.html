@@ -1,0 +1,54 @@
+<i
+*ngIf="_smartSliderOptions.arrows.position === 'center'"
+nz-icon
+nzType="caret-up"
+nzTheme="outline"
+style="width: 100%;position: relative;"
+class="font-50 pointer"
+[ngClass]="{'arrow-disabled': arrowTopDisabled}"
+(click)="getPrevious()"
+></i>
+<div id="{{dataId}}" style="overflow: hidden;" [style.height]="dataPosition === 'none' ? 'calc(100% - 100px)' : '100%'" [style.float]="dataPosition" [style.width]="dataBlockWidth">
+  <!-- <img *ngFor="let item of itemsToShow" class="item-in-data" [src]="item.image" [style.padding.px]="_itemPadding" [style.width]="_itemWidth" /> -->
+
+    <div 
+    *ngFor="let item of itemsToShow; let i=index" 
+    class="item-in-data"
+    [style.padding.px]="_smartSliderOptions.itemOptions.itemPadding" 
+    [style.width]="_smartSliderOptions.itemOptions.itemWidth"
+    (click)="onItemClick(item)">
+      <img [src]="item.image"  [style.width]="'100%'" />
+      <span *ngIf="item.text"  class="{{_smartSliderOptions.textOptions.textPosition}}" [style.color]="_smartSliderOptions.textOptions.textColor" [style.font-size.px]="_smartSliderOptions.textOptions.textFontSize">{{item.text}}</span>   
+    </div>
+    
+
+</div>
+<i
+*ngIf="_smartSliderOptions.arrows.position === 'center'"
+nz-icon
+nzType="caret-down"
+nzTheme="outline"
+style="width: 100%;position: relative;"
+class="font-50 pointer"
+[ngClass]="{'arrow-disabled': arrowBottomDisabled}"
+(click)="getNext()"
+></i>
+
+<div *ngIf="_smartSliderOptions.arrows.position === 'right' || _smartSliderOptions.arrows.position === 'left'" [style.float]="arrowsPosition" style="height: 100%; width: 10%; position: relative;">
+  <i
+    nz-icon
+    nzType="caret-up"
+    nzTheme="outline"
+    class="font-50 arrow arrow-top"
+    [ngClass]="{'arrow-disabled': arrowTopDisabled}"
+    (click)="getPrevious()"
+  ></i>
+  <i
+    nz-icon
+    nzType="caret-down"
+    nzTheme="outline"
+    class="font-50 arrow arrow-bottom"
+    [ngClass]="{'arrow-disabled': arrowBottomDisabled}"
+    (click)="getNext()"
+  ></i>
+</div>
