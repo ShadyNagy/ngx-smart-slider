@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ListDataComponent } from './list-data.component';
+import { SmartSliderVerticalV2Component } from './smart-slider-vertical-v2.component';
 
-describe('ListDataComponent', () => {
-  let component: ListDataComponent;
-  let fixture: ComponentFixture<ListDataComponent>;
+describe('SmartSliderVerticalV2Component', () => {
+  let component: SmartSliderVerticalV2Component;
+  let fixture: ComponentFixture<SmartSliderVerticalV2Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListDataComponent ]
+      declarations: [ SmartSliderVerticalV2Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListDataComponent);
+    fixture = TestBed.createComponent(SmartSliderVerticalV2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
