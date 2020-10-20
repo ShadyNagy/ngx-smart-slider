@@ -7,7 +7,9 @@ style="width: 100%;position: relative;"
 class="font-50 pointer"
 [ngClass]="{'arrow-disabled': arrowTopDisabled}"
 (click)="getPrevious()"
-></i>
+>
+<svg viewBox="0 0 1024 1024" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="caret-up" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg>
+</i>
 <div id="{{dataId}}" style="overflow: hidden;" [style.height]="dataPosition === 'none' ? 'calc(100% - 100px)' : '100%'" [style.float]="dataPosition" [style.width]="dataBlockWidth">
   <!-- <img *ngFor="let item of itemsToShow" class="item-in-data" [src]="item.image" [style.padding.px]="_itemPadding" [style.width]="_itemWidth" /> -->
 
@@ -32,7 +34,9 @@ style="width: 100%;position: relative;"
 class="font-50 pointer"
 [ngClass]="{'arrow-disabled': arrowBottomDisabled}"
 (click)="getNext()"
-></i>
+>
+<svg viewBox="0 0 1024 1024" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="caret-down" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+</i>
 
 <div *ngIf="_smartSliderOptions.arrows.position === 'right' || _smartSliderOptions.arrows.position === 'left'" [style.float]="arrowsPosition" style="height: 100%; width: 10%; position: relative;">
   <i
@@ -42,7 +46,9 @@ class="font-50 pointer"
     class="font-50 arrow arrow-top"
     [ngClass]="{'arrow-disabled': arrowTopDisabled}"
     (click)="getPrevious()"
-  ></i>
+  >
+  <svg viewBox="0 0 1024 1024" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="caret-up" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg>
+</i>
   <i
     nz-icon
     nzType="caret-down"
@@ -50,5 +56,7 @@ class="font-50 pointer"
     class="font-50 arrow arrow-bottom"
     [ngClass]="{'arrow-disabled': arrowBottomDisabled}"
     (click)="getNext()"
-  ></i>
+  >
+  <svg viewBox="0 0 1024 1024" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="caret-down" aria-hidden="true"><path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path></svg>
+</i>
 </div>
