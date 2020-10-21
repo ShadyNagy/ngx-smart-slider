@@ -8,10 +8,12 @@ import { SmartSliderComponent } from './smart-slider.component';
 import { SmartSliderHorizontalComponent } from './smart-slider-horizontal/smart-slider-horizontal.component';
 import { SmartSliderVerticalComponent } from './smart-slider-vertical/smart-slider-vertical.component';
 import { SmartSliderVerticalV2Component } from './smart-slider-vertical-v2/smart-slider-vertical-v2.component';
+import { SmartSliderHorizontalV2Component } from './smart-slider-horizontal-v2/smart-slider-horizontal-v2.component';
 
 const declarations = [
   SmartSliderComponent,
   SmartSliderVerticalV2Component,
+  SmartSliderHorizontalV2Component,
 ];
 
 @NgModule({

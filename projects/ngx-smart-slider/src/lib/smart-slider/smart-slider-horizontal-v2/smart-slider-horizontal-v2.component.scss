@@ -1,0 +1,87 @@
+.icon-a {
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -.125em;
+}
+.icon-a, .icon-a svg {
+  display: inline-block;
+}
+
+.arrow {
+  position: absolute;
+  cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.arrow-disabled {
+  cursor: not-allowed !important;
+  color: rgb(187, 187, 187) !important;
+}
+
+.arrow-top {
+  top: 0px;
+}
+
+.arrow-bottom {
+  bottom: 0px;
+}
+
+.item-in-data {
+  float: left;
+  display: block;
+  position: relative;
+  text-align: center;
+  color: black;
+  cursor: pointer;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered-bottom {
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered-top {
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
