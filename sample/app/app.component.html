@@ -38,3 +38,7 @@
     <smart-slider [vertical]="true" [textColor]="'black'" [textPosition]="selectedTextPosition" [itemMargin]="5" [cellLimit]="cellLimit" [width]="100" [transitionDuration]="1" [items]="items" [showPrevious]="isShowPrevious" [showNext]="isShowNext" (select)="onSelect($event)"></smart-slider>
   </div>
 </div>
+
+<div class="row">
+  <smart-slider-horizontal-v2 [items]="itemsForList" [options]="listDataOptions"></smart-slider-horizontal-v2>
+</div>

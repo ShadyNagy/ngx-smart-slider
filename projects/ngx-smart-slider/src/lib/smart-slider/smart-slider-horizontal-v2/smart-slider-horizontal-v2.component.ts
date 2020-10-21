@@ -24,7 +24,8 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
       itemWidth: '100%'
     },
     arrows: {
-      position: 'right'
+      position: 'right',
+      size: 50,
     },
     height: '100%',
     width: '100%',
@@ -64,6 +65,9 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
     if(value.arrows) {
       if(value.arrows.position) {
         this._smartSliderOptions.arrows.position = value.arrows.position;                  
+      }
+      if(value.arrows.size) {
+        this._smartSliderOptions.arrows.size = value.arrows.size;                  
       }
     }
     

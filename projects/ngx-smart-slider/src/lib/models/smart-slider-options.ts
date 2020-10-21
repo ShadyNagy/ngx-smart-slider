@@ -9,7 +9,8 @@ export interface ISmartSliderOptions {
         itemWidth?: number;
     }    
     arrows?: {
-        position?: 'left' | 'right'  | 'center' | 'top' | 'bottom'
+        position?: 'left' | 'right'  | 'center' | 'top' | 'bottom',
+        size?: number
     }
     height?: number;
     width?: number;
@@ -28,7 +29,8 @@ export interface ISmartSliderOptionsInternal {
         itemWidth?: string;
     }    
     arrows?: {
-        position?: 'left' | 'right'  | 'center' | 'top' | 'bottom'
+        position?: 'left' | 'right'  | 'center' | 'top' | 'bottom',
+        size?: number
     }
     height?: string;
     width?: string;
