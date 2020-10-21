@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
       itemWidth: 200
     },
     arrows: {
-      position: 'right'
+      position: 'center'
     },
-    height: 590
+    height: 185
   };  
 
   itemsForList = [

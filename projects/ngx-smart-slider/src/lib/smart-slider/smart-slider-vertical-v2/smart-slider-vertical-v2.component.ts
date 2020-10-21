@@ -153,6 +153,10 @@ export class SmartSliderVerticalV2Component implements OnInit, AfterViewInit , O
     return '90%';
   }
 
+  get arrowsHeight() {
+    return this._smartSliderOptions.arrows.size*2;
+  }
+
   get arrowsPosition() {
     if (this._smartSliderOptions.arrows.position === 'left') {      
       this.dataPosition = 'right';

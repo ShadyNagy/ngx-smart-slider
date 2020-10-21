@@ -24,7 +24,7 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
       itemWidth: '100%'
     },
     arrows: {
-      position: 'right',
+      position: 'bottom',
       size: 50,
     },
     height: '100%',
@@ -116,6 +116,7 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
       `padding: ${this._smartSliderOptions.padding}px`,
       `overflow: ${this._smartSliderOptions.overflow}`,
       `display: block`,
+      `position: relative`
 		].join(';'));
   }
 
@@ -145,7 +146,7 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
     return this.itemsToShow.length === this._items.length;
   }  
 
-  get dataBlockWidth() {
+  get dataBlockHeight() {
     if (this._smartSliderOptions.arrows.position === 'center') {  
       return'100%';
     }
@@ -153,16 +154,20 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
     return '90%';
   }
 
+  get arrowsWidth() {
+    return this._smartSliderOptions.arrows.size*2;
+  }
+
   get arrowsPosition() {
-    if (this._smartSliderOptions.arrows.position === 'left') {      
-      this.dataPosition = 'right';
+    if (this._smartSliderOptions.arrows.position === 'top') {      
+      this.dataPosition = 'bottom';
 
-      return 'left';
+      return 'top';
     }
-    if (this._smartSliderOptions.arrows.position === 'right') {      
-      this.dataPosition = 'left';
+    if (this._smartSliderOptions.arrows.position === 'bottom') {      
+      this.dataPosition = 'top';
 
-      return 'right';
+      return 'bottom';
     }
 
     return 'none';
