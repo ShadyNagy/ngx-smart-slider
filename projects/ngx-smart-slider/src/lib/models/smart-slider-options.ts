@@ -3,15 +3,15 @@ export interface ISmartSliderOptions {
         textPosition?: 'centered-top' | 'centered-bottom' | 'centered' | 'bottom-right ' | 'top-right' | 'top-left' | 'bottom-left';
         textColor?: string;
         textFontSize?: number;
-    },
+    };
     itemOptions?: {
         itemPadding?: number;
         itemWidth?: number;
-    }    
+    };
     arrows?: {
         position?: 'left' | 'right'  | 'center' | 'top' | 'bottom',
         size?: number
-    }
+    };
     height?: number;
     width?: number;
     padding?: number;
@@ -23,15 +23,15 @@ export interface ISmartSliderOptionsInternal {
         textPosition?: 'centered-top' | 'centered-bottom' | 'centered' | 'bottom-right ' | 'top-right' | 'top-left' | 'bottom-left';
         textColor?: string;
         textFontSize?: number;
-    },
+    };
     itemOptions?: {
         itemPadding?: number;
         itemWidth?: string;
-    }    
+    };
     arrows?: {
         position?: 'left' | 'right'  | 'center' | 'top' | 'bottom',
         size?: number
-    }
+    };
     height?: string;
     width?: string;
     padding?: number;

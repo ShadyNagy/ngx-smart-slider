@@ -49,104 +49,104 @@ let right = [
 })
 export class SmartSliderHorizontalComponent implements OnInit {
 
-  _items=new Array<SmartSliderItem>();
+  _items = new Array<SmartSliderItem>();
   @Input('items')
-  set items(value: Array<SmartSliderItem>) {    
+  set items(value: Array<SmartSliderItem>) {
     this._items = value;
     this.smartSliderService.setItems(this._items, this._cellLimit);
   }
 
-  _showPrevious: boolean=true;
+  _showPrevious = true;
   @Input('showPrevious')
-  set showPrevious(value: boolean) {    
+  set showPrevious(value: boolean) {
     this._showPrevious = value;
   }
 
   _showNext: boolean=true;
   @Input('showNext')
-  set showNext(value: boolean) {    
+  set showNext(value: boolean) {
     this._showNext = value;
   }
 
-  _showDots: boolean=false;
+  _showDots = false;
   @Input('showDots')
-  set showDots(value: boolean) {    
+  set showDots(value: boolean) {
     this._showDots = value;
   }
 
-  _autoplay: boolean=false;
+  _autoplay = false;
   @Input('autoplay')
-  set autoplay(value: boolean) {    
+  set autoplay(value: boolean) {
     this._autoplay = value;
   }
 
-  _loop: boolean=false;
+  _loop = false;
   @Input('loop')
-  set loop(value: boolean) {    
-    this.smartSliderService.isLoop = value; 
+  set loop(value: boolean) {
+    this.smartSliderService.isLoop = value;
     this._loop = value;
   }
 
-  _pauseOnHover: boolean=false;
+  _pauseOnHover = false;
   @Input('pauseOnHover')
-  set pauseOnHover(value: boolean) {    
+  set pauseOnHover(value: boolean) {
     this._pauseOnHover = value;
   }
-  
-  _itemMargin: string='10px';
+
+  _itemMargin = '10px';
   @Input('itemMargin')
-  set itemMargin(value: string) {    
+  set itemMargin(value: string) {
     this._itemMargin = value;
   }
 
-  _itemPadding: string='0px';
+  _itemPadding = '0px';
   @Input('itemPadding')
-  set itemPadding(value: string) {    
+  set itemPadding(value: string) {
     this._itemPadding = value;
   }
 
-  _textPosition: string='centered';
+  _textPosition = 'centered';
   @Input('textPosition')
   set textPosition(value: 'centered-top' | 'centered-bottom' | 'centered' | 'bottom-right ' | 'top-right' | 'top-left' | 'bottom-left') {    
     this._textPosition = value;
   }
 
-  _textColor: string='black';
+  _textColor = 'black';
   @Input('textColor')
-  set textColor(value: string) {    
+  set textColor(value: string) {
     this._textColor = value;
   }
 
-  _cellLimit: number=1;
+  _cellLimit = 1;
   @Input('cellLimit')
-  set cellLimit(value: number) {    
+  set cellLimit(value: number) {
     this._cellLimit = value;
     this.smartSliderService.setItems(this._items, this._cellLimit);
-  }      
-
-  _height: string='100%';
-  containerHeight: string='100%';
-  @Input('height')
-  set height(value: string) {    
-    this._height = value;
-    this.containerHeight = Number.parseInt(value)+10+'px';
   }
 
-  _autoplayInterval: number=2000;
+  _height = '100%';
+  containerHeight: string='100%';
+  @Input('height')
+  set height(value: string) {
+    this._height = value;
+    this.containerHeight = Number.parseInt(value) + 10 + 'px';
+  }
+
+  _autoplayInterval = 2000;
   @Input('autoplayInterval')
-  set autoplayInterval(value: number) {    
+  set autoplayInterval(value: number) {
     this._autoplayInterval = value;
   }
 
-  _transitionDuration: number=0.3;
+  _transitionDuration = 0.3;
   @Input('transitionDuration')
-  set transitionDuration(value: number) {    
+  set transitionDuration(value: number) {
     this._transitionDuration = value;
   }
 
-  _class: string='';
+  _class = '';
   @Input('class')
-  set class(value: string) {    
+  set class(value: string) {
     this._class = value;
   }
 
@@ -177,25 +177,32 @@ export class SmartSliderHorizontalComponent implements OnInit {
 
   smartSliderService = new SmartSliderService();
 
-  constructor(private element: ElementRef, private sanitizer:DomSanitizer) { 
+  constructor(private element: ElementRef, private sanitizer:DomSanitizer) {
 
-  }  
+  }
 
   get slideInOut() {
-    return {value: this.smartSliderService.itemIndex, params: {inWidth: this.width, inHeight: this._height, inTiming: this._transitionDuration}};
-  }  
+    return {
+      value: this.smartSliderService.itemIndex,
+      params: {
+        inWidth: this.width,
+        inHeight: this._height,
+        inTiming: this._transitionDuration
+      }
+    };
+  }
 
 
   private resize() {
     let parentElement = this.element.nativeElement.parentNode.parentNode as HTMLElement;
 
-    this.width = (parentElement.clientWidth)+'px';
+    this.width = (parentElement.clientWidth) + 'px';
     this.smartSliderService.setWidth(parentElement.clientWidth);
-    
+
   }
 
   ngOnInit(): void {
-    this.smartSliderService.setItems(this._items, this._cellLimit);    
+    this.smartSliderService.setItems(this._items, this._cellLimit);
     this.resize();
   }
 
@@ -208,7 +215,7 @@ export class SmartSliderHorizontalComponent implements OnInit {
   }
 
   isPreviousDisabled() {
-    return this.smartSliderService.itemIndex===0;
+    return this.smartSliderService.itemIndex === 0;
   }
 
   show(item: SmartSliderItem) {
@@ -226,8 +233,8 @@ export class SmartSliderHorizontalComponent implements OnInit {
     this.isNext = false;
   }
 
-  isLast(item) {    
-    return this.smartSliderService.itemsToShow[this.isNext?this.smartSliderService.itemsToShow.length-1:0] === item;
+  isLast(item) {
+    return this.smartSliderService.itemsToShow[this.isNext ? this.smartSliderService.itemsToShow.length - 1 : 0] === item;
   }
 
   onTransitionEnd() {
