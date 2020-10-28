@@ -218,8 +218,13 @@ export class SmartSliderVerticalV2Component implements OnInit, AfterViewInit , O
   }
 
   onItemClick(selected: SmartSliderItem) {
-    this.itemsToShow.forEach(x => x.isSelected = false);
-    this.items.forEach(x => x.isSelected = false);
+    if (this.itemsToShow) {
+      this.itemsToShow.forEach(x => x.isSelected = false);
+    }
+
+    if (this.itemsToShow) {
+      this.items.forEach(x => x.isSelected = false);
+    }
     selected.isSelected = true;
     this.select.emit(selected);
   }
