@@ -16,6 +16,8 @@ export interface ISmartSliderOptions {
     width?: number;
     padding?: number;
     overflow?: 'hidden';
+    selectedColor?: string;
+    hoverColor?: string;
 }
 
 export interface ISmartSliderOptionsInternal {
@@ -36,4 +38,6 @@ export interface ISmartSliderOptionsInternal {
     width?: string;
     padding?: number;
     overflow?: 'hidden';
+    selectedColor?: string;
+    hoverColor?: string;
 }

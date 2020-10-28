@@ -14,6 +14,7 @@ class="icon-a pointer"
     <div 
     *ngFor="let item of itemsToShow; let i=index" 
     class="item-in-data"
+    [ngStyle]="setItemStyles(item.isSelected)"
     [style.padding.px]="_smartSliderOptions.itemOptions.itemPadding" 
     [style.width]="_smartSliderOptions.itemOptions.itemWidth"
     (click)="onItemClick(item)">
