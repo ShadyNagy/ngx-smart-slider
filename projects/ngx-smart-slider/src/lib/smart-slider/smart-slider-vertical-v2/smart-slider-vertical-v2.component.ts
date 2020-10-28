@@ -222,7 +222,7 @@ export class SmartSliderVerticalV2Component implements OnInit, AfterViewInit , O
       this.itemsToShow.forEach(x => x.isSelected = false);
     }
 
-    if (this.itemsToShow) {
+    if (this.items) {
       this.items.forEach(x => x.isSelected = false);
     }
     selected.isSelected = true;
