@@ -98,7 +98,7 @@ export class SmartSliderVerticalV2Component implements OnInit, AfterViewInit , O
       this.privateSmartSliderOptions.hoverColor = value.hoverColor;
     }
 
-    value.mapper = this.privateSmartSliderOptions.mapper;
+    this.privateSmartSliderOptions.mapper = value.mapper;
   }
 
   privateItems = new Array<SmartSliderItem>();
