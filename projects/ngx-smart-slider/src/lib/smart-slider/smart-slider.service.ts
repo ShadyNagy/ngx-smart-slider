@@ -1,7 +1,7 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, Injectable } from '@angular/core';
 import { SmartSliderItem } from '../models/smart-slider-item';
 
-
+@Injectable({ providedIn: 'root' })
 export class SmartSliderService {
 
   itemsToShow = new Array<SmartSliderItem>();
