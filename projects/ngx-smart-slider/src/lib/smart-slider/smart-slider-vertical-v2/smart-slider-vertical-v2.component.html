@@ -39,13 +39,13 @@
     [style.width]="privateSmartSliderOptions.itemOptions.itemWidth"
     (click)="onItemClick(item)"
   >
-    <img [src]="smartSliderService.getImage(item)" [style.width]="'100%'" />
+    <img [src]="smartSliderService.getImage(item, privateSmartSliderOptions)" [style.width]="'100%'" />
     <span
-      *ngIf="smartSliderService.getText(item)"
+      *ngIf="smartSliderService.getText(item, privateSmartSliderOptions)"
       class="{{ privateSmartSliderOptions.textOptions.textPosition }}"
       [style.color]="privateSmartSliderOptions.textOptions.textColor"
       [style.font-size.px]="privateSmartSliderOptions.textOptions.textFontSize"
-      >{{ smartSliderService.getText(item) }}</span
+      >{{ smartSliderService.getText(item, privateSmartSliderOptions) }}</span
     >
   </div>
 </div>

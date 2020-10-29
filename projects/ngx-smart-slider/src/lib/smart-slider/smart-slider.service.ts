@@ -1,5 +1,6 @@
 import { ElementRef, Injectable } from '@angular/core';
 import { SmartSliderItem } from '../models/smart-slider-item';
+import { ISmartSliderOptionsInternal } from '../models/smart-slider-options';
 
 @Injectable({ providedIn: 'root' })
 export class SmartSliderService {
@@ -155,33 +156,33 @@ export class SmartSliderService {
     return Math.floor(Math.random() * 16777215).toString(16);
   }
 
-  getId(item: SmartSliderItem) {
-    if (item.idMap) {
-      return item.data[item.idMap];
+  getId(item: SmartSliderItem, smartSliderOptions: ISmartSliderOptionsInternal) {
+    if (smartSliderOptions?.mapper?.idMap) {
+      return item.data[smartSliderOptions?.mapper?.idMap];
     }
 
     return item.id;
   }
 
-  getText(item: SmartSliderItem) {
-    if (item.textMap) {
-      return item.data[item.textMap];
+  getText(item: SmartSliderItem, smartSliderOptions: ISmartSliderOptionsInternal) {
+    if (smartSliderOptions?.mapper?.textMap) {
+      return item.data[smartSliderOptions?.mapper?.textMap];
     }
 
     return item.text;
   }
 
-  getImage(item: SmartSliderItem) {
-    if (item.imageMap) {
-      return item.data[item.imageMap];
+  getImage(item: SmartSliderItem, smartSliderOptions: ISmartSliderOptionsInternal) {
+    if (smartSliderOptions?.mapper?.imageMap) {
+      return item.data[smartSliderOptions?.mapper?.imageMap];
     }
 
     return item.image;
   }
 
-  getAlt(item: SmartSliderItem) {
-    if (item.altMap) {
-      return item.data[item.altMap];
+  getAlt(item: SmartSliderItem, smartSliderOptions: ISmartSliderOptionsInternal) {
+    if (smartSliderOptions?.mapper?.altMap) {
+      return item.data[smartSliderOptions?.mapper?.altMap];
     }
 
     return item.alt;

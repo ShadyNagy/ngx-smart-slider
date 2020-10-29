@@ -12,6 +12,12 @@ export interface ISmartSliderOptions {
         position?: 'left' | 'right'  | 'center' | 'top' | 'bottom',
         size?: number
     };
+    mapper?: {
+        idMap?: string;
+        textMap?: string;
+        imageMap?: string;
+        altMap?: string;
+    };
     height?: number;
     width?: number;
     padding?: number;
@@ -33,6 +39,12 @@ export interface ISmartSliderOptionsInternal {
     arrows?: {
         position?: 'left' | 'right'  | 'center' | 'top' | 'bottom',
         size?: number
+    };
+    mapper?: {
+        idMap?: string;
+        textMap?: string;
+        imageMap?: string;
+        altMap?: string;
     };
     height?: string;
     width?: string;
