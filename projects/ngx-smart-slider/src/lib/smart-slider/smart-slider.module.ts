@@ -24,7 +24,7 @@ const declarations = [
   ],
   imports: [
     CommonModule,
-    BrowserModule, 
+    BrowserModule,
     FormsModule,
     BrowserAnimationsModule
   ],

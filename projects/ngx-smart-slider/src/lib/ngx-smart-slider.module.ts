@@ -9,7 +9,7 @@ const imports = [
 
 @NgModule({
   declarations: [
-    
+
   ],
   imports: [
     CommonModule,

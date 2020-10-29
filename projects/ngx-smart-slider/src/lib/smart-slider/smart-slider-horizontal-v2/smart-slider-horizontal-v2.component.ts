@@ -6,6 +6,7 @@ import { ISmartSliderOptions, ISmartSliderOptionsInternal } from '../../models/s
 import { SmartSliderService } from '../smart-slider.service';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'smart-slider-horizontal-v2',
   templateUrl: './smart-slider-horizontal-v2.component.html',
   styleUrls: ['./smart-slider-horizontal-v2.component.scss']
@@ -13,7 +14,7 @@ import { SmartSliderService } from '../smart-slider.service';
 export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit , OnDestroy {
 
 
-  _smartSliderOptions: ISmartSliderOptionsInternal = {
+  privateSmartSliderOptions: ISmartSliderOptionsInternal = {
     textOptions: {
       textPosition: 'centered',
       textColor: 'black',
@@ -42,70 +43,70 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
 
     if (value.textOptions) {
       if (value.textOptions.textPosition) {
-        this._smartSliderOptions.textOptions.textPosition = value.textOptions.textPosition;
+        this.privateSmartSliderOptions.textOptions.textPosition = value.textOptions.textPosition;
       }
 
       if (value.textOptions.textColor) {
-        this._smartSliderOptions.textOptions.textColor = value.textOptions.textColor;
+        this.privateSmartSliderOptions.textOptions.textColor = value.textOptions.textColor;
       }
 
       if (value.textOptions.textFontSize) {
-        this._smartSliderOptions.textOptions.textFontSize = value.textOptions.textFontSize;
+        this.privateSmartSliderOptions.textOptions.textFontSize = value.textOptions.textFontSize;
       }
     }
 
     if (value.itemOptions) {
       if (value.itemOptions.itemPadding) {
-        this._smartSliderOptions.itemOptions.itemPadding = value.itemOptions.itemPadding;
+        this.privateSmartSliderOptions.itemOptions.itemPadding = value.itemOptions.itemPadding;
       }
 
       if (value.itemOptions.itemWidth) {
-        this._smartSliderOptions.itemOptions.itemWidth = value.itemOptions.itemWidth + 'px';
+        this.privateSmartSliderOptions.itemOptions.itemWidth = value.itemOptions.itemWidth + 'px';
       }
     }
 
     if (value.arrows) {
       if (value.arrows.position) {
-        this._smartSliderOptions.arrows.position = value.arrows.position;
+        this.privateSmartSliderOptions.arrows.position = value.arrows.position;
       }
       if (value.arrows.size) {
-        this._smartSliderOptions.arrows.size = value.arrows.size;
+        this.privateSmartSliderOptions.arrows.size = value.arrows.size;
       }
     }
 
     if (value.height) {
-      this._smartSliderOptions.height = value.height + 'px';
+      this.privateSmartSliderOptions.height = value.height + 'px';
     }
 
     if (value.width) {
-      this._smartSliderOptions.width = value.width + 'px';
+      this.privateSmartSliderOptions.width = value.width + 'px';
     }
 
     if (value.padding) {
-      this._smartSliderOptions.padding = value.padding;
+      this.privateSmartSliderOptions.padding = value.padding;
     }
 
     if (value.overflow) {
-      this._smartSliderOptions.overflow = value.overflow;
+      this.privateSmartSliderOptions.overflow = value.overflow;
     }
 
     if (value.selectedColor) {
-      this._smartSliderOptions.selectedColor = value.selectedColor;
+      this.privateSmartSliderOptions.selectedColor = value.selectedColor;
     }
 
     if (value.hoverColor) {
-      this._smartSliderOptions.hoverColor = value.hoverColor;
+      this.privateSmartSliderOptions.hoverColor = value.hoverColor;
     }
   }
 
-  _items=new Array<SmartSliderItem>();
+  privateItems = new Array<SmartSliderItem>();
   @Input('items')
   set items(value: Array<SmartSliderItem>) {
-    this._items = value;
+    this.privateItems = value;
   }
 
   @Output()
-  select: EventEmitter<SmartSliderItem> = new EventEmitter<SmartSliderItem>();
+  selectItem: EventEmitter<SmartSliderItem> = new EventEmitter<SmartSliderItem>();
 
   itemsToShow = new Array<SmartSliderItem>();
   itemsCountInRow = 0;
@@ -116,6 +117,7 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   itemHoverBackgroundColor = '';
 
   constructor(
+    public smartSliderService: SmartSliderService,
     private sanitizer: DomSanitizer,
     private element: ElementRef) {
   }
@@ -123,10 +125,10 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   @HostBinding('style')
   get hostStyles(): SafeStyle {
     return this.sanitizer.bypassSecurityTrustStyle( [
-      `height: ${this._smartSliderOptions.height}`,
-      `width: ${this._smartSliderOptions.width}`,
-      `padding: ${this._smartSliderOptions.padding}px`,
-      `overflow: ${this._smartSliderOptions.overflow}`,
+      `height: ${this.privateSmartSliderOptions.height}`,
+      `width: ${this.privateSmartSliderOptions.width}`,
+      `padding: ${this.privateSmartSliderOptions.padding}px`,
+      `overflow: ${this.privateSmartSliderOptions.overflow}`,
       `display: block`,
       `position: relative`
     ].join(';'));
@@ -140,7 +142,7 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   ngOnInit() {
     this.id = SmartSliderService.randomHexWord();
     this.dataId = `div-data-${this.id}`;
-    this.itemsToShow = this._items;
+    this.itemsToShow = this.privateItems;
   }
 
   ngAfterViewInit(): void {
@@ -155,11 +157,11 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   }
 
   get arrowTopDisabled() {
-    return this.itemsToShow.length === this._items.length;
+    return this.itemsToShow.length === this.privateItems.length;
   }
 
   get dataBlockHeight() {
-    if (this._smartSliderOptions.arrows.position === 'center') {
+    if (this.privateSmartSliderOptions.arrows.position === 'center') {
       return'100%';
     }
 
@@ -167,16 +169,16 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   }
 
   get arrowsWidth() {
-    return this._smartSliderOptions.arrows.size * 2;
+    return this.privateSmartSliderOptions.arrows.size * 2;
   }
 
   get arrowsPosition() {
-    if (this._smartSliderOptions.arrows.position === 'top') {
+    if (this.privateSmartSliderOptions.arrows.position === 'top') {
       this.dataPosition = 'bottom';
 
       return 'top';
     }
-    if (this._smartSliderOptions.arrows.position === 'bottom') {
+    if (this.privateSmartSliderOptions.arrows.position === 'bottom') {
       this.dataPosition = 'top';
 
       return 'bottom';
@@ -188,29 +190,30 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   setItemStyles(isSelected: boolean) {
     if (isSelected) {
       return {
-        background: `linear-gradient(${this._smartSliderOptions.hoverColor}, ${this._smartSliderOptions.hoverColor})`,
-        'background-color': `${this._smartSliderOptions.hoverColor} !important`
+        background: `linear-gradient(${this.privateSmartSliderOptions.hoverColor}, ${this.privateSmartSliderOptions.hoverColor})`,
+        'background-color': `${this.privateSmartSliderOptions.hoverColor} !important`
       };
     }
     return {};
   }
 
   updateItemsCountInRow() {
-    if (this._smartSliderOptions.itemOptions.itemWidth === '100%') {
+    if (this.privateSmartSliderOptions.itemOptions.itemWidth === '100%') {
       return;
     }
 
-    const itemWidth = parseInt(this._smartSliderOptions.itemOptions.itemWidth) + (this._smartSliderOptions.itemOptions.itemPadding *2);
+    const itemWidth = parseInt(this.privateSmartSliderOptions.itemOptions.itemWidth, 10) +
+      (this.privateSmartSliderOptions.itemOptions.itemPadding * 2);
     const dataWidth = SmartSliderService.getNodeWidthByIdInsideElementRef(this.element, this.dataId);
 
-    this.itemsCountInRow = parseInt((dataWidth / itemWidth).toString());
+    this.itemsCountInRow = parseInt((dataWidth / itemWidth).toString(), 10);
   }
 
   getPrevious() {
-    if (this.itemsToShow.length === this._items.length) {
+    if (this.itemsToShow.length === this.privateItems.length) {
       return;
     }
-    this.itemsToShow = this._items.slice(this._items.length - this.itemsToShow.length - this.itemsCountInRow);
+    this.itemsToShow = this.privateItems.slice(this.privateItems.length - this.itemsToShow.length - this.itemsCountInRow);
   }
 
   getNext() {
@@ -229,6 +232,6 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
       this.items.forEach(x => x.isSelected = false);
     }
     selected.isSelected = true;
-    this.select.emit(selected);
+    this.selectItem.emit(selected);
   }
 }
