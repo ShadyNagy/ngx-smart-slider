@@ -105,7 +105,8 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   @Input('items')
   set items(value: Array<SmartSliderItem>) {
     this.privateItems = value;
-    this.itemsToShow = this.privateItems;
+    this.updateItemsCountInRow();
+    this.getPrevious();
   }
 
   @Output()
