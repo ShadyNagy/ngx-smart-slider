@@ -25,6 +25,8 @@
 </select>
 <br>
 
+<button (click)="changeItemsForList()">Change Item V2</button>
+
 <br>
 <span>Result: {{result}}</span>
 
@@ -40,5 +42,9 @@
 </div>
 
 <div class="row">
-  <smart-slider-horizontal-v2 [items]="itemsForList" [options]="listDataOptions"></smart-slider-horizontal-v2>
+  <smart-slider-horizontal-v2 [items]="itemsForList" [options]="listDataOptionsHorizontal"></smart-slider-horizontal-v2>
+</div>
+
+<div class="row" style="width: 50px;">
+  <smart-slider-vertical-v2 [items]="itemsForList" [options]="listDataOptionsVertical"></smart-slider-vertical-v2>
 </div>

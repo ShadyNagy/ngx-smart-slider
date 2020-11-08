@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   selectedTextPosition = 'centered';
   cellLimit = 3;
 
-  listDataOptions: ISmartSliderOptions = {
+  listDataOptionsHorizontal: ISmartSliderOptions = {
     itemOptions: {
       itemPadding: 5,
       itemWidth: 200
@@ -24,75 +24,20 @@ export class AppComponent implements OnInit {
       position: 'center'
     },
     height: 185
-  };  
+  };
 
-  itemsForList = [
-    {
-      text: 'dish 1',
-      image: '/assets/images/test.jpg',
+  listDataOptionsVertical: ISmartSliderOptions = {
+    itemOptions: {
+      itemPadding: 5,
+      itemWidth: 100
     },
-    {
-      text: 'dish 2',
-      image: '/assets/images/test.jpg',
+    arrows: {
+      position: 'center'
     },
-    {
-      text: 'dish 3',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 4',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 5',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 6',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 7',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 8',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 9',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 10',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 11',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 12',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 13',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 14',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 15',
-      image: '/assets/images/test.jpg',
-    },
-    {
-      text: 'dish 16',
-      image: '/assets/images/test.jpg',
-    },
+    height: 590
+  };
 
-  ];
+  itemsForList = [];
 
   items = new Array<SmartSliderItem>();
 
@@ -180,5 +125,75 @@ export class AppComponent implements OnInit {
 
   changeCellLimit(value: number) {
     this.cellLimit = value;
+  }
+
+  changeItemsForList() {
+    this.itemsForList = [
+      {
+        text: 'dish 1',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 2',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 3',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 4',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 5',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 6',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 7',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 8',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 9',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 10',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 11',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 12',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 13',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 14',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 15',
+        image: '/assets/images/test.jpg',
+      },
+      {
+        text: 'dish 16',
+        image: '/assets/images/test.jpg',
+      },
+
+    ];
   }
 }

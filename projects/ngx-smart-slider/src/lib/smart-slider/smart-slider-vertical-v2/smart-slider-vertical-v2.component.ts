@@ -199,7 +199,7 @@ export class SmartSliderVerticalV2Component implements OnInit, AfterViewInit , O
   }
 
   updateItemsCountInRow() {
-    if (this.privateSmartSliderOptions.itemOptions.itemWidth === '100%') {
+    if (this.privateSmartSliderOptions.itemOptions.itemWidth === '100%' || this.privateItems.length <= 0) {
       return;
     }
 
@@ -208,6 +208,9 @@ export class SmartSliderVerticalV2Component implements OnInit, AfterViewInit , O
     const dataWidth = SmartSliderService.getNodeWidthByIdInsideElementRef(this.element, this.dataId);
 
     this.itemsCountInRow = parseInt((dataWidth / itemWidth).toString(), 10);
+    if (this.itemsCountInRow === 0) {
+      this.itemsCountInRow = 1;
+    }
   }
 
   getPrevious() {
