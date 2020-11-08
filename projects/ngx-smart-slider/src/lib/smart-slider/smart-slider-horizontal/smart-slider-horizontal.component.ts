@@ -223,7 +223,6 @@ export class SmartSliderHorizontalComponent implements OnInit {
   }
 
   onNext() {
-    console.log('itemIndex', this.smartSliderService.itemIndex);
     this.smartSliderService.moveNext();
     this.isNext = true;
   }

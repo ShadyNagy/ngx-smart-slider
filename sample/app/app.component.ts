@@ -115,7 +115,6 @@ export class AppComponent implements OnInit {
   }
 
   selectTextPosition(event) {
-    console.log('event', event);
     this.selectedTextPosition = event;
   }
 

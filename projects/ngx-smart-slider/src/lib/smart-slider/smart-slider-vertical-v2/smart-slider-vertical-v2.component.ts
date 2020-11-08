@@ -202,7 +202,6 @@ export class SmartSliderVerticalV2Component implements OnInit, AfterViewInit , O
     if (this.privateSmartSliderOptions.itemOptions.itemWidth === '100%' || this.privateItems.length <= 0) {
       return;
     }
-    debugger;
 
     const itemWidth = parseInt(this.privateSmartSliderOptions.itemOptions.itemWidth, 10) +
       (this.privateSmartSliderOptions.itemOptions.itemPadding * 2);
