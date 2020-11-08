@@ -105,8 +105,8 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   @Input('items')
   set items(value: Array<SmartSliderItem>) {
     this.privateItems = value;
+    this.itemsToShow = this.privateItems;
     this.updateItemsCountInRow();
-    this.getNext();
   }
 
   @Output()
@@ -146,6 +146,7 @@ export class SmartSliderHorizontalV2Component implements OnInit, AfterViewInit ,
   ngOnInit() {
     this.id = SmartSliderService.randomHexWord();
     this.dataId = `div-data-${this.id}`;
+    this.itemsToShow = this.privateItems;
   }
 
   ngAfterViewInit(): void {
