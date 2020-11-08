@@ -106,7 +106,7 @@ export class SmartSliderVerticalV2Component implements OnInit, AfterViewInit , O
   set items(value: Array<SmartSliderItem>) {
     this.privateItems = value;
     this.updateItemsCountInRow();
-    this.getPrevious();
+    this.getNext();
   }
 
   @Output()
