@@ -1,0 +1,56 @@
+{
+  "name": "ngx-smart-slider",
+  "author": "Shady Nagy <info@shadynagy.com>",
+  "version": "1.1.26",
+  "license": "MIT",
+  "description": "An enterprise-class UI components based on slider and Angular",
+  "keywords": [
+    "ngx",
+    "ngx-smart-slider",
+    "smart",
+    "slider",
+    "design",
+    "angular",
+    "ui",
+    "framework",
+    "frontend",
+    "angular",
+    "Carousel",
+    "Responsive"
+  ],
+  "homepage": "http://shadynagy.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShadyNagy/ngx-smart-slider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShadyNagy/ngx-smart-slider/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.12",
+    "@angular/core": "^9.1.12"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "main": "bundles/ngx-smart-slider.umd.js",
+  "module": "fesm5/ngx-smart-slider.js",
+  "es2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/ngx-smart-slider.js",
+  "es2015": "fesm2015/ngx-smart-slider.js",
+  "esm5": "esm5/ngx-smart-slider.js",
+  "esm2015": "esm2015/ngx-smart-slider.js",
+  "fesm5": "fesm5/ngx-smart-slider.js",
+  "fesm2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/ngx-smart-slider.js",
+  "fesm2015": "fesm2015/ngx-smart-slider.js",
+  "typings": "ngx-smart-slider.d.ts",
+  "metadata": "ngx-smart-slider.metadata.json",
+  "sideEffects": false,
+  "__processed_by_ivy_ngcc__": {
+    "es2015": "9.1.12",
+    "fesm2015": "9.1.12",
+    "typings": "9.1.12"
+  },
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
+  }
+}

@@ -1,0 +1,54 @@
+import { ElementRef } from '@angular/core';
+import { SmartSliderItem } from '../models/smart-slider-item';
+import { ISmartSliderOptionsInternal } from '../models/smart-slider-options';
+import * as ɵngcc0 from '@angular/core';
+export declare class SmartSliderService {
+    itemsToShow: SmartSliderItem[];
+    itemIndex: number;
+    width: number;
+    height: number;
+    margin: number;
+    horizontalMargin: number;
+    verticalMargin: number;
+    isLoop: boolean;
+    private limit;
+    private sliderMoving;
+    private items;
+    constructor();
+    get maxIndex(): number;
+    get itemWidth(): number;
+    get itemHeight(): number;
+    static getNodeByClassNameInsideElementRef(element: ElementRef, className: string): any;
+    static getNodeWidthByClassNameInsideElementRef(element: ElementRef, className: string): any;
+    static getNodeHeightByClassNameInsideElementRef(element: ElementRef, className: string): any;
+    static getNodeByIdInsideElementRef(element: ElementRef, id: string): HTMLElement;
+    static getNodeWidthByIdInsideElementRef(element: ElementRef, id: string): number;
+    static getNodeHeightByIdInsideElementRef(element: ElementRef, id: string): number;
+    static getNodeByClassNameInsideNativeElement(element: any, className: string): any;
+    static getNodeWidthByClassNameInsideNativeElement(element: any, className: string): any;
+    static getNodeHeightByClassNameInsideNativeElement(element: any, className: string): any;
+    static getNodeByIdInsideNativeElement(element: any, id: string): HTMLElement;
+    static getNodeWidthByIdInsideNativeElement(element: any, id: string): number;
+    static getNodeHeightByIdInsideNativeElement(element: any, id: string): number;
+    static randomHexWord(): string;
+    getId(item: SmartSliderItem, smartSliderOptions: ISmartSliderOptionsInternal): any;
+    getText(item: SmartSliderItem, smartSliderOptions: ISmartSliderOptionsInternal): any;
+    getImage(item: SmartSliderItem, smartSliderOptions: ISmartSliderOptionsInternal): any;
+    getAlt(item: SmartSliderItem, smartSliderOptions: ISmartSliderOptionsInternal): any;
+    setLimit(count: number): void;
+    getLimit(): number;
+    setHorizontalMargin(margin: number): void;
+    setVerticalMargin(margin: number): void;
+    setWidth(width: number): void;
+    setHeight(height: number): void;
+    setItems(items: Array<SmartSliderItem>, limit?: number): void;
+    moveNext(): void;
+    movePrevious(): void;
+    sliderDone(): void;
+    private updateItemsToShow;
+    private updateItemIndexNext;
+    private updateItemIndexPrevious;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<SmartSliderService, never>;
+}
+
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic21hcnQtc2xpZGVyLnNlcnZpY2UuZC50cyIsInNvdXJjZXMiOlsic21hcnQtc2xpZGVyLnNlcnZpY2UuZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7O0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFbGVtZW50UmVmIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcbmltcG9ydCB7IFNtYXJ0U2xpZGVySXRlbSB9IGZyb20gJy4uL21vZGVscy9zbWFydC1zbGlkZXItaXRlbSc7XHJcbmltcG9ydCB7IElTbWFydFNsaWRlck9wdGlvbnNJbnRlcm5hbCB9IGZyb20gJy4uL21vZGVscy9zbWFydC1zbGlkZXItb3B0aW9ucyc7XHJcbmV4cG9ydCBkZWNsYXJlIGNsYXNzIFNtYXJ0U2xpZGVyU2VydmljZSB7XHJcbiAgICBpdGVtc1RvU2hvdzogU21hcnRTbGlkZXJJdGVtW107XHJcbiAgICBpdGVtSW5kZXg6IG51bWJlcjtcclxuICAgIHdpZHRoOiBudW1iZXI7XHJcbiAgICBoZWlnaHQ6IG51bWJlcjtcclxuICAgIG1hcmdpbjogbnVtYmVyO1xyXG4gICAgaG9yaXpvbnRhbE1hcmdpbjogbnVtYmVyO1xyXG4gICAgdmVydGljYWxNYXJnaW46IG51bWJlcjtcclxuICAgIGlzTG9vcDogYm9vbGVhbjtcclxuICAgIHByaXZhdGUgbGltaXQ7XHJcbiAgICBwcml2YXRlIHNsaWRlck1vdmluZztcclxuICAgIHByaXZhdGUgaXRlbXM7XHJcbiAgICBjb25zdHJ1Y3RvcigpO1xyXG4gICAgZ2V0IG1heEluZGV4KCk6IG51bWJlcjtcclxuICAgIGdldCBpdGVtV2lkdGgoKTogbnVtYmVyO1xyXG4gICAgZ2V0IGl0ZW1IZWlnaHQoKTogbnVtYmVyO1xyXG4gICAgc3RhdGljIGdldE5vZGVCeUNsYXNzTmFtZUluc2lkZUVsZW1lbnRSZWYoZWxlbWVudDogRWxlbWVudFJlZiwgY2xhc3NOYW1lOiBzdHJpbmcpOiBhbnk7XHJcbiAgICBzdGF0aWMgZ2V0Tm9kZVdpZHRoQnlDbGFzc05hbWVJbnNpZGVFbGVtZW50UmVmKGVsZW1lbnQ6IEVsZW1lbnRSZWYsIGNsYXNzTmFtZTogc3RyaW5nKTogYW55O1xyXG4gICAgc3RhdGljIGdldE5vZGVIZWlnaHRCeUNsYXNzTmFtZUluc2lkZUVsZW1lbnRSZWYoZWxlbWVudDogRWxlbWVudFJlZiwgY2xhc3NOYW1lOiBzdHJpbmcpOiBhbnk7XHJcbiAgICBzdGF0aWMgZ2V0Tm9kZUJ5SWRJbnNpZGVFbGVtZW50UmVmKGVsZW1lbnQ6IEVsZW1lbnRSZWYsIGlkOiBzdHJpbmcpOiBIVE1MRWxlbWVudDtcclxuICAgIHN0YXRpYyBnZXROb2RlV2lkdGhCeUlkSW5zaWRlRWxlbWVudFJlZihlbGVtZW50OiBFbGVtZW50UmVmLCBpZDogc3RyaW5nKTogbnVtYmVyO1xyXG4gICAgc3RhdGljIGdldE5vZGVIZWlnaHRCeUlkSW5zaWRlRWxlbWVudFJlZihlbGVtZW50OiBFbGVtZW50UmVmLCBpZDogc3RyaW5nKTogbnVtYmVyO1xyXG4gICAgc3RhdGljIGdldE5vZGVCeUNsYXNzTmFtZUluc2lkZU5hdGl2ZUVsZW1lbnQoZWxlbWVudDogYW55LCBjbGFzc05hbWU6IHN0cmluZyk6IGFueTtcclxuICAgIHN0YXRpYyBnZXROb2RlV2lkdGhCeUNsYXNzTmFtZUluc2lkZU5hdGl2ZUVsZW1lbnQoZWxlbWVudDogYW55LCBjbGFzc05hbWU6IHN0cmluZyk6IGFueTtcclxuICAgIHN0YXRpYyBnZXROb2RlSGVpZ2h0QnlDbGFzc05hbWVJbnNpZGVOYXRpdmVFbGVtZW50KGVsZW1lbnQ6IGFueSwgY2xhc3NOYW1lOiBzdHJpbmcpOiBhbnk7XHJcbiAgICBzdGF0aWMgZ2V0Tm9kZUJ5SWRJbnNpZGVOYXRpdmVFbGVtZW50KGVsZW1lbnQ6IGFueSwgaWQ6IHN0cmluZyk6IEhUTUxFbGVtZW50O1xyXG4gICAgc3RhdGljIGdldE5vZGVXaWR0aEJ5SWRJbnNpZGVOYXRpdmVFbGVtZW50KGVsZW1lbnQ6IGFueSwgaWQ6IHN0cmluZyk6IG51bWJlcjtcclxuICAgIHN0YXRpYyBnZXROb2RlSGVpZ2h0QnlJZEluc2lkZU5hdGl2ZUVsZW1lbnQoZWxlbWVudDogYW55LCBpZDogc3RyaW5nKTogbnVtYmVyO1xyXG4gICAgc3RhdGljIHJhbmRvbUhleFdvcmQoKTogc3RyaW5nO1xyXG4gICAgZ2V0SWQoaXRlbTogU21hcnRTbGlkZXJJdGVtLCBzbWFydFNsaWRlck9wdGlvbnM6IElTbWFydFNsaWRlck9wdGlvbnNJbnRlcm5hbCk6IGFueTtcclxuICAgIGdldFRleHQoaXRlbTogU21hcnRTbGlkZXJJdGVtLCBzbWFydFNsaWRlck9wdGlvbnM6IElTbWFydFNsaWRlck9wdGlvbnNJbnRlcm5hbCk6IGFueTtcclxuICAgIGdldEltYWdlKGl0ZW06IFNtYXJ0U2xpZGVySXRlbSwgc21hcnRTbGlkZXJPcHRpb25zOiBJU21hcnRTbGlkZXJPcHRpb25zSW50ZXJuYWwpOiBhbnk7XHJcbiAgICBnZXRBbHQoaXRlbTogU21hcnRTbGlkZXJJdGVtLCBzbWFydFNsaWRlck9wdGlvbnM6IElTbWFydFNsaWRlck9wdGlvbnNJbnRlcm5hbCk6IGFueTtcclxuICAgIHNldExpbWl0KGNvdW50OiBudW1iZXIpOiB2b2lkO1xyXG4gICAgZ2V0TGltaXQoKTogbnVtYmVyO1xyXG4gICAgc2V0SG9yaXpvbnRhbE1hcmdpbihtYXJnaW46IG51bWJlcik6IHZvaWQ7XHJcbiAgICBzZXRWZXJ0aWNhbE1hcmdpbihtYXJnaW46IG51bWJlcik6IHZvaWQ7XHJcbiAgICBzZXRXaWR0aCh3aWR0aDogbnVtYmVyKTogdm9pZDtcclxuICAgIHNldEhlaWdodChoZWlnaHQ6IG51bWJlcik6IHZvaWQ7XHJcbiAgICBzZXRJdGVtcyhpdGVtczogQXJyYXk8U21hcnRTbGlkZXJJdGVtPiwgbGltaXQ/OiBudW1iZXIpOiB2b2lkO1xyXG4gICAgbW92ZU5leHQoKTogdm9pZDtcclxuICAgIG1vdmVQcmV2aW91cygpOiB2b2lkO1xyXG4gICAgc2xpZGVyRG9uZSgpOiB2b2lkO1xyXG4gICAgcHJpdmF0ZSB1cGRhdGVJdGVtc1RvU2hvdztcclxuICAgIHByaXZhdGUgdXBkYXRlSXRlbUluZGV4TmV4dDtcclxuICAgIHByaXZhdGUgdXBkYXRlSXRlbUluZGV4UHJldmlvdXM7XHJcbn1cclxuIl19

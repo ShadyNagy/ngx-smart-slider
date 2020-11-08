@@ -1,0 +1,43 @@
+import { AfterViewInit, ElementRef, EventEmitter } from '@angular/core';
+import { OnInit, OnDestroy } from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { SmartSliderItem } from '../../models/smart-slider-item';
+import { ISmartSliderOptions, ISmartSliderOptionsInternal } from '../../models/smart-slider-options';
+import { SmartSliderService } from '../smart-slider.service';
+export declare class SmartSliderVerticalV2Component implements OnInit, AfterViewInit, OnDestroy {
+    smartSliderService: SmartSliderService;
+    private sanitizer;
+    private element;
+    privateSmartSliderOptions: ISmartSliderOptionsInternal;
+    set smartSliderOptions(value: ISmartSliderOptions);
+    privateItems: SmartSliderItem[];
+    set items(value: Array<SmartSliderItem>);
+    selectItem: EventEmitter<SmartSliderItem>;
+    itemsToShow: SmartSliderItem[];
+    itemsCountInRow: number;
+    id: string;
+    dataId: string;
+    dataPosition: string;
+    constructor(smartSliderService: SmartSliderService, sanitizer: DomSanitizer, element: ElementRef);
+    get hostStyles(): SafeStyle;
+    onResize(): void;
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    get arrowBottomDisabled(): boolean;
+    get arrowTopDisabled(): boolean;
+    get dataBlockWidth(): "100%" | "90%";
+    get arrowsHeight(): number;
+    get arrowsPosition(): "left" | "right" | "none";
+    setItemStyles(isSelected: boolean): {
+        background: string;
+        'background-color': string;
+    } | {
+        background?: undefined;
+        'background-color'?: undefined;
+    };
+    updateItemsCountInRow(): void;
+    getPrevious(): void;
+    getNext(): void;
+    onItemClick(selected: SmartSliderItem): void;
+}
