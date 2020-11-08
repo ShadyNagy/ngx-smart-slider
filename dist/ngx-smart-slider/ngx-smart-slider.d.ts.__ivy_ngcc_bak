@@ -1,6 +1,0 @@
-/**
- * Generated bundle index. Do not edit.
- */
-export * from './public-api';
-export { SmartSliderHorizontalComponent as ɵa } from './lib/smart-slider/smart-slider-horizontal/smart-slider-horizontal.component';
-export { SmartSliderVerticalComponent as ɵb } from './lib/smart-slider/smart-slider-vertical/smart-slider-vertical.component';
