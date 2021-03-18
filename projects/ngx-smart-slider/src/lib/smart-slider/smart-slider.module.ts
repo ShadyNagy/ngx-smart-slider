@@ -26,7 +26,7 @@ const declarations = [
     CommonModule,
     // BrowserModule,
     FormsModule,
-    BrowserAnimationsModule
+    // BrowserAnimationsModule
   ],
   exports: [
     ...declarations,
